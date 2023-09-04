@@ -1,3 +1,15 @@
+/*Matrix Green: #00FF00*/
+/*Dark Charcoal: #333333*/
+/*Code Blue: #007BFF*/
+/*Monochrome White: #FFFFFF*/
+/*Cryptic Purple: #9900CC*/
+/*Neon Teal: #00FFFF*/
+
+/*GOOGLE FONTS*/
+/*font-family: 'IBM Plex Mono', monospace; */
+/*font-family: 'Sora', sans-serif;*/
+
+
 /* Reset some default styles to ensure consistent behavior */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
     margin: 0;
@@ -14,7 +26,9 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
 
 /* Set a base font size and line height for better readability */
 body {
-    font-family: Arial, sans-serif;
+    color: #00FF00;
+    background-color: #333333;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -26,26 +40,42 @@ body {
     padding: 0 20px;
 }
 
-/* Simple mobile-friendly navigation menu */
-.navbar {
-    background-color: #333;
-    color: #fff;
+/*Navigation bar*/
+
+.navbar { /* Whole Division */
+    color: black;
+    background-color: #007BFF;
+    text-align: right;
+    margin: 0 0 1rem 0;
+    padding: 0.3rem 1rem;
 }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.navbar>ul { /* The unorganized list inside */
+    text-align: left;
 }
 
-.navbar li {
-    margin: 0 10px;
+.navbar>ul>li { /* each list item*/
+    list-style-type: none;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #fff;
+.navbar>ul>li:hover { /* list items on hover*/
+    color: white;
 }
 
+/*Header section*/
 
+#headerDivision { /* Whole division*/
+    text-align: center;
+}
+
+#headerDivision>img { /* Profile pic */
+    max-width: 55vw;
+}
+
+#headerDivision>h1 { /*Presentation title*/
+    font-size: 2rem;
+}
+
+#headerDivision>h3 { /* presentation text*/
+    font-size: 1.3rem;
+}
