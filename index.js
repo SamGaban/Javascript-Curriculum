@@ -23,42 +23,35 @@ hamburgerMenuIcon.addEventListener('click', () => {
     menuItemTwo.textContent = "plop";
     menuItemThree.textContent = "heya";
 
-    if (hamburgerMenuDeployed) {
+    if (hamburgerMenuDeployed) { // populating burger menu items
         hamburgerMenu.appendChild(menuItemOne);
         hamburgerMenu.appendChild(menuItemTwo);
         hamburgerMenu.appendChild(menuItemThree);
-    } else {
+    } else { // closing the burger menu if clicked when opened
         hamburgerMenu.innerHTML = "";
     }
 });
 
 // Reseting Boxes function
 
-const boxRefreshToZero = () => {
+const boxRefreshToZero = () => { // emptying the box items appended to it
     boxToAppendCategoriesTo.innerHTML = "";
 };
 
 
 // Skills
 
-const skillList = [
-    "Communication",
-    "Leadership",
-    "Versatility",
-    "Decision-making",
-    "Resourcefulness"
-]
 
-boxToClickSkills.addEventListener('click', () => {
+
+boxToClickSkills.addEventListener('click', () => { // When you click the "skills" main box
     boxRefreshToZero();
 
-    let toAppend = document.createElement('ul');
+    let toAppend = document.createElement('div');
     toAppend.setAttribute('id', 'skillBoxList');
-    for (let i = 0; i < skillList.length; i++) {
-        let elementToAppend = document.createElement('li');
-        elementToAppend.textContent = `${skillList[i]}`;
-        toAppend.appendChild(elementToAppend);
-    }
+    let elementToAppend = document.createElement('img');
+    elementToAppend.setAttribute('src', './assets/images/graph.png')
+    toAppend.appendChild(elementToAppend);
+
     boxToAppendCategoriesTo.appendChild(toAppend);
 });
 
@@ -67,58 +60,113 @@ boxToClickSkills.addEventListener('click', () => {
 const workExperienceList = [
 
     {id:0,
-    job:"L'aile ou la cuisse<br>(Waremme, Belgium) - Co-Founder & Manager",
-    date:"November 2021 - December 2022",
+    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> L'aile ou la cuisse<br><i class=\'fa-solid fa-hammer\'></i> Co-Founder & Manager",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Waremme, Belgium",
+    date:"<i class=\'fa-regular fa-calendar-days\'></i> November 2021 - December 2022",
     items:[
-        "Managing, training, and supervising staff.",
-        "Managing budgets",
-        "Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
-        "Ensuring compliance with licensing, hygiene, health and safety legislations."]
+        "• Managing, training, and supervising staff.",
+        "• Managing budgets",
+        "• Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
+        "• Ensuring compliance with licensing, hygiene, health and safety legislations."]
     },
     {id:1,
-    job:"GSK Pharmaceutics<br>(Wavre, Belgium) - Security / Welcome Desk",
-    date:"March 2020 - November 2021",
+    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> GSK Pharmaceutics<br><i class=\'fa-solid fa-hammer\'></i> Security / Welcome Desk",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Wavre, Belgium",
+    date:"<i class=\'fa-regular fa-calendar-days\'></i> March 2020 - November 2021",
     items:[
-        "Handling internal security / site access / IT related tickets.",
-        "Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
-        "Conflict resolution and prevention."
+        "• Handling internal security / site access / IT related tickets.",
+        "• Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
+        "• Conflict resolution and prevention."
     ]
     },
     {id:2,
-    job:"Brussels Exposition Park<br>(Brussels, Belgium) - Security / Team Leader",
-    date:"September 2019 - March 2020",
+    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Brussels Exposition Park<br><i class=\'fa-solid fa-hammer\'></i> Security / Team Leader",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Brussels, Belgium",
+    date:"<i class=\'fa-regular fa-calendar-days\'></i> September 2019 - March 2020",
     items:[
-        "Managing and securing major public events, their assembling, and disassembling."
+        "• Managing and securing major public events, their assembling, and disassembling."
         ]
     },
     {id:3,
-    job:"St-John's International School<br>(Waterloo, Belgium) - Qualified Static Agent",
-    date:"July 2018 - January 2019",
+    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> St-John's International School<br><i class=\'fa-solid fa-hammer\'></i> Qualified Static Agent",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Waterloo, Belgium",
+    date:"<i class=\'fa-regular fa-calendar-days\'></i> July 2018 - January 2019",
     items:[
-        "Securing of high-profile private school and hosting of various VIP events."
+        "• Securing of high-profile private school and hosting of various VIP events."
         ]
     },
     {id:4,
-    job:"Slogans SPRL<br>(Floreffe, Belgium) - Graphic Designer / Assistant to the manager",
-    date:"June 2015 - September 2017",
+    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Slogans SPRL<br><i class=\'fa-solid fa-hammer\'></i> Graphic Designer / Assistant to the manager",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Floreffe, Belgium",
+    date:"<i class=\'fa-regular fa-calendar-days\'></i> June 2015 - September 2017",
     items:[
-        "Readying advertising files for printing and cutting / Managing client relationships"
+        "• Readying advertising files for printing and cutting / Managing client relationships"
         ]
     },
 ];
 
-console.log(workExperienceList);
+let titleBoxOpenedState = "";
 
-boxToClickWorkExperience.addEventListener('click', () => {
-    boxRefreshToZero();
+// Function to populate the work experience tabs when clicking on titles
+const populateWorkExperience = (id) => {
+    boxRefreshToZero()
+    populateTitles()
 
+    // creating a conditional that closes the titles if you click on them and
+    // they are opened already
+
+    if (titleBoxOpenedState === `open${id}`) {
+        titleBoxOpenedState = "";
+        boxRefreshToZero();
+        populateTitles();
+    } else {
+        titleBoxOpenedState = `open${id}`
+
+
+        let containerToAppendTo = document.querySelector(`#work_experience_${id}`);
+        containerToAppendTo.style.border = '1px solid white';
+        let date = document.createElement('h6');
+        let location = document.createElement('h6');
+        let mainList = document.createElement('ul');
+
+        let workingDate = workExperienceList[id].date;
+        let workingLocation = workExperienceList[id].location;
+        let workingList = workExperienceList[id].items;
+
+        date.innerHTML = workingDate;
+        location.innerHTML = workingLocation;
+        for (let i = 0; i < workingList.length; i++) {
+            let listItem = document.createElement('li');
+            listItem.textContent = workingList[i];
+            mainList.appendChild(listItem);
+            if (i !== (workingList.length - 1)) {
+                mainList.innerHTML += "<hr class='list_separator'>";
+            }
+        }
+        containerToAppendTo.appendChild(date);
+        containerToAppendTo.appendChild(location);
+        containerToAppendTo.appendChild(mainList);
+
+    }
+
+};
+
+
+const populateTitles = () => { // Creates the clickable titles of work experiences
     let toAppend = document.createElement('div');
     toAppend.setAttribute("id", "workExperienceBoxList") // to append
 
-    for (let i = 0; i < workExperienceList.length; i++) {
+    for (let i = 0; i < workExperienceList.length; i++) { // creating the titles of the different experiences
         let titleOfWorkExperience = document.createElement('h6');
         titleOfWorkExperience.innerHTML = workExperienceList[i].job;
+        titleOfWorkExperience.setAttribute('id', `work_experience_${workExperienceList[i].id}`);
+        titleOfWorkExperience.setAttribute('onclick', `populateWorkExperience(${workExperienceList[i].id})`);
         toAppend.appendChild(titleOfWorkExperience);
     }
     boxToAppendCategoriesTo.appendChild(toAppend);
+};
+
+boxToClickWorkExperience.addEventListener('click', () => { // adding functionality to the titles
+    boxRefreshToZero();
+    populateTitles()
 });

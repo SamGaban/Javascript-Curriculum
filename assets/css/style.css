@@ -9,6 +9,10 @@
 /*font-family: 'IBM Plex Mono', monospace; */
 /*font-family: 'Sora', sans-serif;*/
 
+.fa-solid {
+    color: #00FF00;
+}
+
 
 /* Reset some default styles to ensure consistent behavior */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
@@ -61,6 +65,7 @@ body {
 
 .navbar>ul>li:hover { /* list items on hover*/
     color: white;
+    cursor: pointer;
     transition-duration: 0.4s;
 }
 
@@ -91,6 +96,7 @@ body {
 #tabSection { /* Whole section */
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
 #tabSection>h6 { /* Individual categories */
@@ -107,17 +113,47 @@ body {
 
 #tabSection>h6:hover {
     background-color: #007BFF;
+    cursor: pointer;
     transition-duration: 0.4s;
 }
 
 /*Browser Tabs "Skills" Section*/
 
-#skillBoxList {
-    margin: 0 auto 0 1rem;
+
+#skillBoxList>img {
+    max-width: 90vw;
 }
 
 /*Browser Tabs "Work Experience" Section*/
 
-#workExperienceBoxList {
+#workExperienceBoxList { /* whole box*/
 
 }
+
+#workExperienceBoxList>h6 { /* title boxes */
+    color: white;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    transition-duration: 0.3s;
+}
+
+#workExperienceBoxList>h6:hover {
+    background-color: rgba(0, 123, 255, 0.47);
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+#workExperienceBoxList>h6>ul {
+    margin-top: 2rem;
+}
+
+#workExperienceBoxList>h6>ul>li {
+    list-style-type: none;
+}
+
+#workExperienceBoxList>h6>ul>.list_separator {
+    border-color: #00FF00;
+    max-width: 75%;
+    margin-left: 0;
+}
+
