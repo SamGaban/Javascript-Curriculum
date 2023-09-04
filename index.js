@@ -21,7 +21,10 @@ hamburgerMenuIcon.addEventListener('click', () => {
     let menuItemThree = document.createElement('li');
     menuItemOne.textContent = "test";
     menuItemTwo.textContent = "plop";
-    menuItemThree.textContent = "heya";
+    menuItemThree.textContent = "Old CV";
+    menuItemThree.addEventListener('click', () => {
+        open("https://samgaban.github.io/curriculum/");
+    })
 
     if (hamburgerMenuDeployed) { // populating burger menu items
         hamburgerMenu.appendChild(menuItemOne);
@@ -62,45 +65,45 @@ const workExperienceList = [
     {id:0,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> L'aile ou la cuisse<br><i class=\'fa-solid fa-hammer\'></i> Co-Founder & Manager",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Waremme, Belgium",
-    date:"<i class=\'fa-regular fa-calendar-days\'></i> November 2021 - December 2022",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> November 2021 - December 2022",
     items:[
-        "• Managing, training, and supervising staff.",
-        "• Managing budgets",
-        "• Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
-        "• Ensuring compliance with licensing, hygiene, health and safety legislations."]
+        "<i class=\'fa-solid fa-circle\'></i> Managing, training, and supervising staff.",
+        "<i class=\'fa-solid fa-circle\'></i> Managing budgets",
+        "<i class=\'fa-solid fa-circle\'></i> Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
+        "<i class=\'fa-solid fa-circle\'></i> Ensuring compliance with licensing, hygiene, health and safety legislations."]
     },
     {id:1,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> GSK Pharmaceutics<br><i class=\'fa-solid fa-hammer\'></i> Security / Welcome Desk",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Wavre, Belgium",
-    date:"<i class=\'fa-regular fa-calendar-days\'></i> March 2020 - November 2021",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> March 2020 - November 2021",
     items:[
-        "• Handling internal security / site access / IT related tickets.",
-        "• Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
-        "• Conflict resolution and prevention."
+        "<i class=\'fa-solid fa-circle\'></i> Handling internal security / site access / IT related tickets.",
+        "<i class=\'fa-solid fa-circle\'></i> Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
+        "<i class=\'fa-solid fa-circle\'></i> Conflict resolution and prevention."
     ]
     },
     {id:2,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Brussels Exposition Park<br><i class=\'fa-solid fa-hammer\'></i> Security / Team Leader",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Brussels, Belgium",
-    date:"<i class=\'fa-regular fa-calendar-days\'></i> September 2019 - March 2020",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2019 - March 2020",
     items:[
-        "• Managing and securing major public events, their assembling, and disassembling."
+        "<i class=\'fa-solid fa-circle\'></i> Managing and securing major public events, their assembling, and disassembling."
         ]
     },
     {id:3,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> St-John's International School<br><i class=\'fa-solid fa-hammer\'></i> Qualified Static Agent",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Waterloo, Belgium",
-    date:"<i class=\'fa-regular fa-calendar-days\'></i> July 2018 - January 2019",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2018 - January 2019",
     items:[
-        "• Securing of high-profile private school and hosting of various VIP events."
+        "<i class=\'fa-solid fa-circle\'></i> Securing of high-profile private school and hosting of various VIP events."
         ]
     },
     {id:4,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Slogans SPRL<br><i class=\'fa-solid fa-hammer\'></i> Graphic Designer / Assistant to the manager",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Floreffe, Belgium",
-    date:"<i class=\'fa-regular fa-calendar-days\'></i> June 2015 - September 2017",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> June 2015 - September 2017",
     items:[
-        "• Readying advertising files for printing and cutting / Managing client relationships"
+        "<i class=\'fa-solid fa-circle\'></i> Readying advertising files for printing and cutting / Managing client relationships"
         ]
     },
 ];
@@ -137,11 +140,10 @@ const populateWorkExperience = (id) => {
         location.innerHTML = workingLocation;
         for (let i = 0; i < workingList.length; i++) {
             let listItem = document.createElement('li');
-            listItem.textContent = workingList[i];
+            listItem.innerHTML = workingList[i];
+            mainList.innerHTML += "<hr class='list_separator'>";
             mainList.appendChild(listItem);
-            if (i !== (workingList.length - 1)) {
-                mainList.innerHTML += "<hr class='list_separator'>";
-            }
+
         }
         containerToAppendTo.appendChild(date);
         containerToAppendTo.appendChild(location);
