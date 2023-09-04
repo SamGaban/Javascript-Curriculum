@@ -56,16 +56,19 @@ body {
 
 .navbar>ul>li { /* each list item*/
     list-style-type: none;
+    transition-duration: 0.4s;
 }
 
 .navbar>ul>li:hover { /* list items on hover*/
     color: white;
+    transition-duration: 0.4s;
 }
 
 /*Header section*/
 
 #headerDivision { /* Whole division*/
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 #headerDivision>img { /* Profile pic */
@@ -74,8 +77,47 @@ body {
 
 #headerDivision>h1 { /*Presentation title*/
     font-size: 2rem;
+    font-weight: 800;
 }
 
 #headerDivision>h3 { /* presentation text*/
     font-size: 1.3rem;
+    font-weight: 400;
+}
+
+
+/*"Browser Tabs" Section*/
+
+#tabSection { /* Whole section */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#tabSection>h6 { /* Individual categories */
+    background-color: #00FFFF;
+    border: 1px solid black;
+    color: black;
+    flex-grow: 1;
+    font-size: calc(100%/1.5);
+    max-width: calc(100%/3);
+    padding: 0.2rem;
+    transition-duration: 0.4s;
+
+}
+
+#tabSection>h6:hover {
+    background-color: #007BFF;
+    transition-duration: 0.4s;
+}
+
+/*Browser Tabs "Skills" Section*/
+
+#skillBoxList {
+    margin: 0 auto 0 1rem;
+}
+
+/*Browser Tabs "Work Experience" Section*/
+
+#workExperienceBoxList {
+
 }
