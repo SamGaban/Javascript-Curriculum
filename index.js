@@ -114,6 +114,7 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
     }
     toAppend.appendChild(mainLanguagesDiv);
     boxToAppendCategoriesTo.appendChild(toAppend);
+
     ScrollDown();
 });
 

@@ -123,20 +123,25 @@ body {
     margin-bottom: 1rem;
 }
 
-#tabSection>h6 { /* Individual categories */
+#tabSection>div { /* Individual categories */
+    align-items: center;
+    align-content: center;
     background-color: #176B87;
     border: 1px solid black;
     color: #EEEEEE;
+    display: flex;
     flex-grow: 1;
     font-size: calc(100%/1.5);
-    height: 3rem;
-    max-width: calc(100%/3);
-    padding: 0.4rem;
+    height: auto;
+    justify-items: center;
+    justify-content: center;
+    /*max-width: calc(100%/3);*/
+    padding: 0.6rem;
     transition-duration: 0.4s;
 
 }
 
-#tabSection>h6:hover {
+#tabSection>div:hover {
     color: black;
     background-color: #64CCC5;
     cursor: pointer;
