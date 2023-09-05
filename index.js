@@ -75,19 +75,19 @@ const workExperienceList = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Waremme, Belgium",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> November 2021 - December 2022",
     items:[
-        "<i class=\'fa-solid fa-circle\'></i> Managing, training, and supervising staff.",
-        "<i class=\'fa-solid fa-circle\'></i> Managing budgets",
-        "<i class=\'fa-solid fa-circle\'></i> Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
-        "<i class=\'fa-solid fa-circle\'></i> Ensuring compliance with licensing, hygiene, health and safety legislations."]
+        "Managing, training, and supervising staff.",
+        "Managing budgets",
+        "Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
+        "Ensuring compliance with licensing, hygiene, health and safety legislations."]
     },
     {id:1,
     job:"<i class=\'fa-solid fa-location-crosshairs\'></i> GSK Pharmaceutics<br><i class=\'fa-solid fa-hammer\'></i> Security / Welcome Desk",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Wavre, Belgium",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> March 2020 - November 2021",
     items:[
-        "<i class=\'fa-solid fa-circle\'></i> Handling internal security / site access / IT related tickets.",
-        "<i class=\'fa-solid fa-circle\'></i> Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
-        "<i class=\'fa-solid fa-circle\'></i> Conflict resolution and prevention."
+        "Handling internal security / site access / IT related tickets.",
+        "Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
+        "Conflict resolution and prevention."
     ]
     },
     {id:2,
@@ -95,7 +95,7 @@ const workExperienceList = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Brussels, Belgium",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2019 - March 2020",
     items:[
-        "<i class=\'fa-solid fa-circle\'></i> Managing and securing major public events, their assembling, and disassembling."
+        "Managing and securing major public events, their assembling, and disassembling."
         ]
     },
     {id:3,
@@ -103,7 +103,7 @@ const workExperienceList = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Waterloo, Belgium",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2018 - January 2019",
     items:[
-        "<i class=\'fa-solid fa-circle\'></i> Securing of high-profile private school and hosting of various VIP events."
+        "Securing of high-profile private school and hosting of various VIP events."
         ]
     },
     {id:4,
@@ -111,7 +111,7 @@ const workExperienceList = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Floreffe, Belgium",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> June 2015 - September 2017",
     items:[
-        "<i class=\'fa-solid fa-circle\'></i> Readying advertising files for printing and cutting / Managing client relationships"
+        "Readying advertising files for printing and cutting / Managing client relationships"
         ]
     },
 ];
@@ -132,6 +132,7 @@ const PopulateWorkExperienceIndividual = (id) => {
         PopulateWorkExperienceTitles();
     } else {
         titleBoxOpenedState = `open${id}`
+
 
 
         let containerToAppendTo = document.querySelector(`#work_experience_${id}`);
@@ -163,6 +164,8 @@ const PopulateWorkExperienceIndividual = (id) => {
 };
 
 
+// Function that shows the titles of work experiences in the tab
+
 const PopulateWorkExperienceTitles = () => { // Creates the clickable titles of work experiences
     let toAppend = document.createElement('div');
     toAppend.setAttribute("id", "workExperienceBoxList") // to append
@@ -170,6 +173,7 @@ const PopulateWorkExperienceTitles = () => { // Creates the clickable titles of 
     for (let i = 0; i < workExperienceList.length; i++) { // creating the titles of the different experiences
         let titleOfWorkExperience = document.createElement('h6');
         titleOfWorkExperience.innerHTML = workExperienceList[i].job;
+        titleOfWorkExperience.classList.add('highlighted')
         titleOfWorkExperience.setAttribute('id', `work_experience_${workExperienceList[i].id}`);
         titleOfWorkExperience.setAttribute('onclick', `PopulateWorkExperienceIndividual(${workExperienceList[i].id})`);
         toAppend.appendChild(titleOfWorkExperience);
@@ -195,7 +199,7 @@ const educationDictionary = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Seraing - Belgium"
     },
     {id:1,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python programming & Full Stack web developer",
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python developer & Full Stack web developer",
     name:"<i class=\'fa-solid fa-location-crosshairs\'></i> The App Brewery",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> December 2022 - June 2023",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
@@ -228,6 +232,10 @@ const PopulateEducationIndividual = (id) => {
     } else { // else => open
         educationBoxOpenedState = `open_${id}`
 
+        let title = document.querySelector(`.education_title_${id}`);
+        console.log(title.classList);
+        title.classList.remove('highlighted')
+
         RefreshBoxToBasicState();
         PopulateEducationTitles();
 
@@ -246,6 +254,7 @@ const PopulateEducationIndividual = (id) => {
         boxToAppendTo.appendChild(date);
         boxToAppendTo.appendChild(location);
 
+        boxToAppendTo.classList.add('boxed');
         boxToAppendTo.classList.add('highlighted');
 
         ScrollDown();
@@ -265,7 +274,8 @@ const PopulateEducationTitles = () => {
 
         let educationTitle = document.createElement('h6');
         educationTitle.innerHTML = educationDictionary[i].type;
-        educationTitle.setAttribute('class', 'education_title');
+        educationTitle.classList.add(`education_title_${educationDictionary[i].id}`);
+        educationTitle.classList.add('highlighted');
         educationSubDiv.appendChild(educationTitle);
         educationSubDiv.setAttribute('onclick', `PopulateEducationIndividual(${educationDictionary[i].id})`)
         educationSubDiv.classList.add('education_sub_div');
