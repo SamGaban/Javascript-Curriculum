@@ -1,3 +1,20 @@
+// XP For Coding languages XP Bar
+//Python
+const pCodinGames = 12;
+const pHackerRank = 10;
+const pLeetCode = 0;
+
+// Javascript
+const jCodinGames = 0;
+const jHackerRank = 0;
+const jLeetCode = 0;
+
+// C#
+const cCodinGames = 0;
+const cHackerRank = 0;
+const cLeetCode = 0;
+
+
 // Variables defining
 const hamburgerMenuIcon = document.querySelector('#hamburger_icon');
 const hamburgerMenu = document.querySelector('#deployable_menu');
@@ -7,7 +24,9 @@ const boxToClickWorkExperience = document.querySelector('#workExperienceBox');
 const boxToClickEducation = document.querySelector('#educationBox');
 const boxToClickCodingLanguages = document.querySelector('#codeLanguageBox');
 const boxToClickFrameworks = document.querySelector('#frameworksBox');
-const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+const boxToClickHobbies = document.querySelector('#hobbiesBox');
+
+ pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
 
 
 // Function to force scroll to end of page
@@ -226,25 +245,25 @@ boxToClickWorkExperience.addEventListener('click', () => { // adding functionali
 const educationDictionary = [
     {id:0,
     type:"<i class=\'fa-solid fa-graduation-cap\'></i> AI Integration Specialized Web Developer",
-    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Technifutur",
+    name:"<i class='fa-solid fa-school-flag'></i> Technifutur",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2023 - Ongoing",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Seraing - Belgium"
     },
     {id:1,
     type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python & Full Stack Web Developer",
-    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> The App Brewery (Through Udemy)",
+    name:"<i class='fa-solid fa-school-flag'></i> The App Brewery (Through Udemy)",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> December 2022 - June 2023",
     location:"<i class=\'fa-solid fa-location-dot\'></i> London, England"
     },
     {id:2,
     type:"<i class=\'fa-solid fa-graduation-cap\'></i> Assistant to the prevention and security professions",
-    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Namur Technical Institute",
+    name:"<i class='fa-solid fa-school-flag'></i> Namur Technical Institute",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2017 - June 2018",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
     },
     {id:3,
     type:"<i class=\'fa-solid fa-graduation-cap\'></i> Graphic industries technician",
-    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Institute of Technical Arts Education",
+    name:"<i class='fa-solid fa-school-flag'></i> Institute of Technical Arts Education",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2013 - June 2015",
     location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
     }
@@ -323,3 +342,180 @@ boxToClickEducation.addEventListener('click', () => {
     RefreshBoxToBasicState();
     PopulateEducationTitles();
 });
+
+// "Coding Languages" Tab
+
+const codingLanguagesList = [
+    {id:0,
+    language:"<i class='fa-solid fa-brands fa-python'></i> Python",
+    codinggame:pCodinGames,
+    hackerrank:pHackerRank,
+    leetcode:pLeetCode},
+    {id:1,
+    language:"<i class='fa-solid fa-brands fa-js'></i> Javascript",
+    codinggame:jCodinGames,
+    hackerrank:jHackerRank,
+    leetcode:jLeetCode},
+    {id:2,
+    language:"<i class='fa-solid fa-c'></i><i class='fa-solid fa-hashtag'></i> C Sharp",
+    codinggame:cCodinGames,
+    hackerrank:cHackerRank,
+    leetcode:cLeetCode}
+];
+
+// Populating each code language title when clicking on it
+
+let codeLanguageTabDisplaying = "";
+
+const PopulateCodingLanguagesIndividual = (id) => {
+
+    if (codeLanguageTabDisplaying === `language${id}`) {
+        RefreshBoxToBasicState();
+        PopulateCodingLanguagesTitles();
+        codeLanguageTabDisplaying = "";
+    } else {
+
+        codeLanguageTabDisplaying = `language${id}`;
+        RefreshBoxToBasicState();
+        PopulateCodingLanguagesTitles();
+
+        let title = document.querySelector(`#language_name_${codingLanguagesList[id].id}`);
+        title.classList.add('centered');
+
+        let box = document.querySelector(`#code_div_${id}`)
+        box.classList.add('highlighted');
+        box.classList.add('boxed');
+
+        let one = parseInt(codingLanguagesList[id].codinggame);
+        let two = parseInt(codingLanguagesList[id].hackerrank);
+        let three = parseInt(codingLanguagesList[id].leetcode);
+
+        let codingChallengesDisplay = document.createElement('h2');
+        codingChallengesDisplay.classList.add('coding_challenge_display');
+        codingChallengesDisplay.textContent = "Coding Challenges Completed";
+        let codingGameStats = document.createElement('h5'); // Stats for each site
+            codingGameStats.innerHTML = `CodinGame: ${one}`;
+        let hackerRankStats = document.createElement('h5');
+            hackerRankStats.innerHTML = `HackerRank: ${two}`;
+        let leetCodeStats = document.createElement('h5');
+            leetCodeStats.innerHTML = `LeetCode: ${three}`;
+
+        let xpCount = one + two + three; // total of xp from each site
+
+        let actualLvl = 0;
+
+        let imgsrc = ""; // img src that's gonna change depending on the level and percentage
+        // defining what level the language is with his current xp
+        for (let i = 0; i < lvlDic.length; i++) {
+            if (xpCount >= lvlDic[i].min && xpCount <= lvlDic[i].max) {
+                actualLvl = lvlDic[i].lvl;
+            }
+        }
+
+        let totalPointsInLevel = lvlDic[actualLvl].max - lvlDic[actualLvl].min;
+        let progression = xpCount - lvlDic[actualLvl].min;
+        let percentage = ((progression / totalPointsInLevel) * 100).toFixed(2);
+
+        if (0 <= percentage && percentage <= 15) {
+            imgsrc = "xp10"
+        } else if (16 <= percentage && percentage <= 25) {
+            imgsrc = "xp20"
+        } else if (26 <= percentage && percentage <= 35) {
+            imgsrc = "xp30"
+        } else if (36 <= percentage && percentage <= 45) {
+            imgsrc = "xp40"
+        } else if (46 <= percentage && percentage <= 55) {
+            imgsrc = "xp50"
+        } else if (56 <= percentage && percentage <= 65) {
+            imgsrc = "xp60"
+        } else if (66 <= percentage && percentage <= 75) {
+            imgsrc = "xp70"
+        } else if (76 <= percentage && percentage <= 85) {
+            imgsrc = "xp80"
+        } else if (86 <= percentage && percentage <= 95) {
+            imgsrc = "xp90"
+        } else if (96 <= percentage) {
+            imgsrc = "xp100"
+        }
+
+        let displayLevel = document.createElement('h4');
+        displayLevel.classList.add('display_level');
+        displayLevel.innerHTML = `Level ${actualLvl}`;
+
+        let percentageDisplay = document.createElement('p');
+        percentageDisplay.textContent = `${percentage}%`;
+        percentageDisplay.style.color = "black";
+        percentageDisplay.classList.add('percentageLevel');
+
+        let xpbar = document.createElement('div');
+        xpbar.classList.add('xpbar');
+        xpbar.classList.add(imgsrc);
+        xpbar.appendChild(percentageDisplay);
+
+        let leftBeforeNextLevel = document.createElement('h6');
+        leftBeforeNextLevel.textContent = `${(totalPointsInLevel - progression)} challenges left before level ${actualLvl + 1}`;
+
+        box.appendChild(codingChallengesDisplay);
+        box.appendChild(codingGameStats);
+        box.appendChild(hackerRankStats);
+        box.appendChild(leetCodeStats);
+        box.appendChild(displayLevel);
+        box.appendChild(xpbar);
+        box.appendChild(leftBeforeNextLevel);
+
+        ScrollDown();
+
+
+    }
+}
+
+
+// Populating the "coding languages" tab
+
+const PopulateCodingLanguagesTitles = () => {
+  for (let i = 0; i < codingLanguagesList.length; i++) {
+      let codeDiv = document.createElement('div');
+      codeDiv.setAttribute('id', `code_div_${codingLanguagesList[i].id}`);
+      codeDiv.classList.add('code_div');
+      codeDiv.classList.add('highlighted');
+      codeDiv.setAttribute('onclick', `PopulateCodingLanguagesIndividual(${codingLanguagesList[i].id})`);
+
+      let languageName = document.createElement('h3');
+      languageName.setAttribute('id', `language_name_${codingLanguagesList[i].id}`);
+      languageName.innerHTML = codingLanguagesList[i].language;
+
+      codeDiv.appendChild(languageName);
+      boxToAppendCategoriesTo.appendChild(codeDiv);
+  }
+}
+
+boxToClickCodingLanguages.addEventListener('click', () => {
+    RefreshBoxToBasicState();
+    PopulateCodingLanguagesTitles();
+});
+
+const lvlDic = [
+    {lvl:0, min:-5, max:-1},
+    {lvl:1, min:0, max:5},
+    {lvl:2, min:6, max:10},
+    {lvl:3, min:11, max:15},
+    {lvl:4, min:16, max:20},
+    {lvl:5, min:21, max:25},
+    {lvl:6, min:26, max:30},
+    {lvl:7, min:31, max:35},
+    {lvl:8, min:36, max:40},
+    {lvl:9, min:41, max:45},
+    {lvl:10, min:46, max:50},
+    {lvl:11, min:51, max:60},
+    {lvl:12, min:61, max:70},
+    {lvl:13, min:71, max:85},
+    {lvl:14, min:86, max:100},
+    {lvl:15, min:101, max:120},
+    {lvl:16, min:121, max:140},
+    {lvl:17, min:141, max:165},
+    {lvl:18, min:166, max:190},
+    {lvl:19, min:191, max:250},
+    {lvl:20, min:251, max:300},
+];
+
+// Frameworks used tab

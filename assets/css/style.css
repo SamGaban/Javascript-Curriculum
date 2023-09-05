@@ -58,6 +58,12 @@ body {
     transition-duration: 0.3s;
 }
 
+.centered {
+    text-align: center;
+    transition-duration: 0.8s;
+    margin-bottom: 1rem;
+}
+
 
 
 /*Navigation bar*/
@@ -154,7 +160,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin: 1rem auto;
 }
 
 /*Browser Tabs "Work Experience" Section*/
@@ -188,4 +194,75 @@ body {
 
 .education_sub_div {
     margin-bottom: 1rem;
+}
+
+/*Browser Tabs Coding languages section*/
+
+.coding_challenge_display {
+    margin-bottom: 1rem;
+}
+
+/*XPBAR Functionality*/
+
+.code_div {
+    margin-bottom: 1.5rem;
+}
+
+.display_level {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+.xpbar {
+    align-items: center;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 6rem;
+    justify-items: center;
+    justify-content: center;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.xp10 {
+    background-image: url("../images/xpbar/10.png");
+}
+
+.xp20 {
+    background-image: url("../images/xpbar/20.png");
+}
+
+.xp30 {
+    background-image: url("../images/xpbar/30.png");
+}
+
+.xp40 {
+    background-image: url("../images/xpbar/40.png");
+}
+
+.xp50 {
+    background-image: url("../images/xpbar/50.png");
+}
+
+.xp60 {
+    background-image: url("../images/xpbar/60.png");
+}
+
+.xp70 {
+    background-image: url("../images/xpbar/70.png");
+}
+
+.xp80 {
+    background-image: url("../images/xpbar/80.png");
+}
+
+.xp90 {
+    background-image: url("../images/xpbar/90.png");
+}
+
+.xp100 {
+    background-image: url("../images/xpbar/100.png");
 }
