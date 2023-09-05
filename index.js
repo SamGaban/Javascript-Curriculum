@@ -52,6 +52,22 @@ const RefreshBoxToBasicState = () => { // emptying the box items appended to it
 // Skills
 
 
+const languagesSpoken = [
+    {id:0,
+    language:"English",
+    level:"C2"},
+    {id:1,
+    language:"French",
+    level:"C2"},
+    {id:2,
+    language:"Dutch",
+    level:"A2"},
+    {id:3,
+    language:"Swedish",
+    level:"A1"}
+];
+
+
 
 boxToClickSkills.addEventListener('click', () => { // When you click the "skills" main box
     RefreshBoxToBasicState();
@@ -62,6 +78,22 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
     elementToAppend.setAttribute('src', './assets/images/graph.png')
     toAppend.appendChild(elementToAppend);
 
+
+    // LANGUAGES PART
+    let mainLanguagesDiv = document.createElement('div')
+    mainLanguagesDiv.setAttribute('id', 'main_languages_div');
+    for (let i = 0; i < languagesSpoken.length; i++) {
+        let languagesDiv = document.createElement('div');
+        languagesDiv.classList.add('individual_language_box');
+        let language = document.createElement('h4');
+        let level = document.createElement('h6');
+        language.innerHTML = languagesSpoken[i].language;
+        level.innerHTML = languagesSpoken[i].level;
+        languagesDiv.appendChild(language);
+        languagesDiv.appendChild(level);
+        mainLanguagesDiv.appendChild(languagesDiv)
+    }
+    toAppend.appendChild(mainLanguagesDiv);
     boxToAppendCategoriesTo.appendChild(toAppend);
     ScrollDown();
 });
@@ -199,10 +231,10 @@ const educationDictionary = [
     location:"<i class=\'fa-solid fa-location-dot\'></i> Seraing - Belgium"
     },
     {id:1,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python developer & Full Stack web developer",
-    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> The App Brewery",
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python & Full Stack Web Developer",
+    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> The App Brewery (Through Udemy)",
     date:"<i class=\'fa-solid fa-calendar-days\'></i> December 2022 - June 2023",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
+    location:"<i class=\'fa-solid fa-location-dot\'></i> London, England"
     },
     {id:2,
     type:"<i class=\'fa-solid fa-graduation-cap\'></i> Assistant to the prevention and security professions",
