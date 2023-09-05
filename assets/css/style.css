@@ -4,6 +4,10 @@
 /*font-family: 'IBM Plex Mono', monospace; */
 /*font-family: 'Sora', sans-serif;*/
 
+html {
+    scroll-behavior: smooth;
+}
+
 .fa-solid {
     color: #00FF00;
 }
@@ -38,6 +42,13 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+.highlighted {
+    border: 1px solid #00FF00;
+    padding: 0.4rem;
+}
+
+
 
 /*Navigation bar*/
 
@@ -133,7 +144,7 @@ body {
 }
 
 #workExperienceBoxList>h6:hover {
-    background-color: rgba(0, 123, 255, 0.47);
+    background-color: rgba(100, 204, 197, 0.49);
     cursor: pointer;
     transition-duration: 0.3s;
 }
@@ -152,3 +163,19 @@ body {
     margin-left: 0;
 }
 
+
+/*Browser Tabs Education Section*/
+
+.education_sub_div {
+    margin-bottom: 1rem;
+}
+
+.education_title { /* education h6 titles */
+    transition-duration: 0.3s;
+}
+
+.education_title:hover {
+    background-color: rgba(100, 204, 197, 0.49);
+    cursor: pointer;
+    transition-duration: 0.3s;
+}

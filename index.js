@@ -7,7 +7,14 @@ const boxToClickWorkExperience = document.querySelector('#workExperienceBox');
 const boxToClickEducation = document.querySelector('#educationBox');
 const boxToClickCodingLanguages = document.querySelector('#codeLanguageBox');
 const boxToClickFrameworks = document.querySelector('#frameworksBox');
+const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
 
+
+// Function to force scroll to end of page
+
+const ScrollDown = () => {
+    window.scrollTo(0, pageHeight);
+};
 
 
 // Hamburger menu
@@ -37,7 +44,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
 
 // Resetting Boxes function
 
-const boxRefreshToZero = () => { // emptying the box items appended to it
+const RefreshBoxToBasicState = () => { // emptying the box items appended to it
     boxToAppendCategoriesTo.innerHTML = "";
 };
 
@@ -47,7 +54,7 @@ const boxRefreshToZero = () => { // emptying the box items appended to it
 
 
 boxToClickSkills.addEventListener('click', () => { // When you click the "skills" main box
-    boxRefreshToZero();
+    RefreshBoxToBasicState();
 
     let toAppend = document.createElement('div');
     toAppend.setAttribute('id', 'skillBoxList');
@@ -56,6 +63,7 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
     toAppend.appendChild(elementToAppend);
 
     boxToAppendCategoriesTo.appendChild(toAppend);
+    ScrollDown();
 });
 
 // Work Experience
@@ -111,17 +119,17 @@ const workExperienceList = [
 let titleBoxOpenedState = "";
 
 // Function to populate the work experience tabs when clicking on titles
-const populateWorkExperience = (id) => {
-    boxRefreshToZero()
-    populateTitles()
+const PopulateWorkExperienceIndividual = (id) => {
+    RefreshBoxToBasicState()
+    PopulateWorkExperienceTitles()
 
     // creating a conditional that closes the titles if you click on them and
     // they are opened already
 
     if (titleBoxOpenedState === `open${id}`) {
         titleBoxOpenedState = "";
-        boxRefreshToZero();
-        populateTitles();
+        RefreshBoxToBasicState();
+        PopulateWorkExperienceTitles();
     } else {
         titleBoxOpenedState = `open${id}`
 
@@ -149,12 +157,13 @@ const populateWorkExperience = (id) => {
         containerToAppendTo.appendChild(location);
         containerToAppendTo.appendChild(mainList);
 
+        ScrollDown();
     }
 
 };
 
 
-const populateTitles = () => { // Creates the clickable titles of work experiences
+const PopulateWorkExperienceTitles = () => { // Creates the clickable titles of work experiences
     let toAppend = document.createElement('div');
     toAppend.setAttribute("id", "workExperienceBoxList") // to append
 
@@ -162,13 +171,109 @@ const populateTitles = () => { // Creates the clickable titles of work experienc
         let titleOfWorkExperience = document.createElement('h6');
         titleOfWorkExperience.innerHTML = workExperienceList[i].job;
         titleOfWorkExperience.setAttribute('id', `work_experience_${workExperienceList[i].id}`);
-        titleOfWorkExperience.setAttribute('onclick', `populateWorkExperience(${workExperienceList[i].id})`);
+        titleOfWorkExperience.setAttribute('onclick', `PopulateWorkExperienceIndividual(${workExperienceList[i].id})`);
         toAppend.appendChild(titleOfWorkExperience);
     }
     boxToAppendCategoriesTo.appendChild(toAppend);
+    ScrollDown();
 };
 
 boxToClickWorkExperience.addEventListener('click', () => { // adding functionality to the titles
-    boxRefreshToZero();
-    populateTitles()
+    RefreshBoxToBasicState();
+    PopulateWorkExperienceTitles()
+});
+
+// Education Tabs
+
+// Education Object
+
+const educationDictionary = [
+    {id:0,
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> AI Integration Specialized Web Developer",
+    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Technifutur",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2023 - Ongoing",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Seraing - Belgium"
+    },
+    {id:1,
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python programming & Full Stack web developer",
+    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> The App Brewery",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> December 2022 - June 2023",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
+    },
+    {id:2,
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Assistant to the prevention and security professions",
+    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Namur Technical Institute",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2017 - June 2018",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
+    },
+    {id:3,
+    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Graphic industries technician",
+    name:"<i class=\'fa-solid fa-location-crosshairs\'></i> Institute of Technical Arts Education",
+    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2013 - June 2015",
+    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
+    }
+];
+
+
+// Function to populate the Education titles with the rest of information
+
+let educationBoxOpenedState = "";
+
+const PopulateEducationIndividual = (id) => {
+
+    if (educationBoxOpenedState === `open_${id}`) { // If already opened
+        RefreshBoxToBasicState();
+        PopulateEducationTitles();
+        educationBoxOpenedState = "";
+    } else { // else => open
+        educationBoxOpenedState = `open_${id}`
+
+        RefreshBoxToBasicState();
+        PopulateEducationTitles();
+
+        let boxToAppendTo = document.querySelector(`#education_box_${id}`)
+
+        let establishment = document.createElement('h6');
+        establishment.innerHTML = educationDictionary[id].name;
+
+        let date = document.createElement('h6');
+        date.innerHTML = educationDictionary[id].date;
+
+        let location = document.createElement('h6');
+        location.innerHTML = educationDictionary[id].location;
+
+        boxToAppendTo.appendChild(establishment);
+        boxToAppendTo.appendChild(date);
+        boxToAppendTo.appendChild(location);
+
+        boxToAppendTo.classList.add('highlighted');
+
+        ScrollDown();
+    }
+}
+
+
+
+// Function to populate the "Education" tab
+
+const PopulateEducationTitles = () => {
+    for (let i = 0; i < educationDictionary.length; i++) {
+        let educationSubDiv = document.createElement('div');
+        educationSubDiv.setAttribute('id', `education_box_${educationDictionary[i].id}`);
+
+        let educationTitle = document.createElement('h6');
+        educationTitle.innerHTML = educationDictionary[i].type;
+        educationTitle.setAttribute('class', 'education_title');
+        educationSubDiv.appendChild(educationTitle);
+        educationSubDiv.setAttribute('onclick', `PopulateEducationIndividual(${educationDictionary[i].id})`)
+        educationSubDiv.classList.add('education_sub_div');
+
+        boxToAppendCategoriesTo.appendChild(educationSubDiv);
+        ScrollDown();
+    }
+};
+
+boxToClickEducation.addEventListener('click', () => {
+    RefreshBoxToBasicState();
+    PopulateEducationTitles();
 });
