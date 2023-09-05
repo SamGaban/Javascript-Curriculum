@@ -35,7 +35,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
     }
 });
 
-// Reseting Boxes function
+// Resetting Boxes function
 
 const boxRefreshToZero = () => { // emptying the box items appended to it
     boxToAppendCategoriesTo.innerHTML = "";

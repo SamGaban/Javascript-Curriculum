@@ -1,9 +1,4 @@
-/*Matrix Green: #00FF00*/
-/*Dark Charcoal: #333333*/
-/*Code Blue: #007BFF*/
-/*Monochrome White: #FFFFFF*/
-/*Cryptic Purple: #9900CC*/
-/*Neon Teal: #00FFFF*/
+/*https://colorhunt.co/palette/053b50176b8764ccc5eeeeee*/
 
 /*GOOGLE FONTS*/
 /*font-family: 'IBM Plex Mono', monospace; */
@@ -30,8 +25,8 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
 
 /* Set a base font size and line height for better readability */
 body {
-    color: #00FF00;
-    background-color: #333333;
+    color: #EEEEEE;
+    background-color: #053B50;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 16px;
     line-height: 1.5;
@@ -47,8 +42,8 @@ body {
 /*Navigation bar*/
 
 .navbar { /* Whole Division */
-    color: black;
-    background-color: #007BFF;
+    color: #053B50;
+    background-color: #176B87;
     text-align: right;
     margin: 0 0 1rem 0;
     padding: 0.3rem 1rem;
@@ -64,7 +59,7 @@ body {
 }
 
 .navbar>ul>li:hover { /* list items on hover*/
-    color: white;
+    color: #64CCC5;
     cursor: pointer;
     transition-duration: 0.4s;
 }
@@ -100,9 +95,9 @@ body {
 }
 
 #tabSection>h6 { /* Individual categories */
-    background-color: #00FFFF;
+    background-color: #176B87;
     border: 1px solid black;
-    color: black;
+    color: #EEEEEE;
     flex-grow: 1;
     font-size: calc(100%/1.5);
     max-width: calc(100%/3);
@@ -112,7 +107,7 @@ body {
 }
 
 #tabSection>h6:hover {
-    background-color: #007BFF;
+    background-color: #64CCC5;
     cursor: pointer;
     transition-duration: 0.4s;
 }
@@ -131,7 +126,7 @@ body {
 }
 
 #workExperienceBoxList>h6 { /* title boxes */
-    color: white;
+    color: #EEEEEE;
     margin-bottom: 1rem;
     padding: 0.3rem;
     transition-duration: 0.3s;
