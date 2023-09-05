@@ -1,3 +1,7 @@
+// <i class=\'fa-solid fa-caret-down\'></i>
+// <i class=\'fa-solid fa-caret-left\'></i>
+
+
 // XP For Coding languages XP Bar
 //Python
 const pCodinGames = 12;
@@ -186,9 +190,9 @@ const PopulateWorkExperienceIndividual = (id) => {
         titleBoxOpenedState = `open${id}`
 
 
-
         let containerToAppendTo = document.querySelector(`#work_experience_${id}`);
         containerToAppendTo.style.border = '1px solid white';
+        containerToAppendTo.innerHTML = workExperienceList[id].job + " <i class='fa-solid fa-caret-down'></i>";
         let date = document.createElement('h6');
         let location = document.createElement('h6');
         let mainList = document.createElement('ul');
@@ -224,7 +228,7 @@ const PopulateWorkExperienceTitles = () => { // Creates the clickable titles of 
 
     for (let i = 0; i < workExperienceList.length; i++) { // creating the titles of the different experiences
         let titleOfWorkExperience = document.createElement('h6');
-        titleOfWorkExperience.innerHTML = workExperienceList[i].job;
+        titleOfWorkExperience.innerHTML = workExperienceList[i].job + " <i class='fa-solid fa-caret-left'></i>";
         titleOfWorkExperience.classList.add('highlighted')
         titleOfWorkExperience.setAttribute('id', `work_experience_${workExperienceList[i].id}`);
         titleOfWorkExperience.setAttribute('onclick', `PopulateWorkExperienceIndividual(${workExperienceList[i].id})`);
@@ -284,12 +288,14 @@ const PopulateEducationIndividual = (id) => {
     } else { // else => open
         educationBoxOpenedState = `open_${id}`
 
-        let title = document.querySelector(`.education_title_${id}`);
-        console.log(title.classList);
-        title.classList.remove('highlighted')
-
         RefreshBoxToBasicState();
         PopulateEducationTitles();
+
+        let title = document.querySelector(`.education_title_${id}`);
+        title.classList.remove('highlighted')
+
+        title.innerHTML = educationDictionary[id].type + " <i class='fa-solid fa-caret-down'></i>";
+        // title.innerHTML = educationDictionary[id].type + " test";
 
         let boxToAppendTo = document.querySelector(`#education_box_${id}`)
 
@@ -325,7 +331,7 @@ const PopulateEducationTitles = () => {
         educationSubDiv.setAttribute('id', `education_box_${educationDictionary[i].id}`);
 
         let educationTitle = document.createElement('h6');
-        educationTitle.innerHTML = educationDictionary[i].type;
+        educationTitle.innerHTML = educationDictionary[i].type + " <i class='fa-solid fa-caret-left'></i>";
         educationTitle.classList.add(`education_title_${educationDictionary[i].id}`);
         educationTitle.classList.add('highlighted');
         educationSubDiv.appendChild(educationTitle);
@@ -381,6 +387,7 @@ const PopulateCodingLanguagesIndividual = (id) => {
         PopulateCodingLanguagesTitles();
 
         let title = document.querySelector(`#language_name_${codingLanguagesList[id].id}`);
+        title.innerHTML = codingLanguagesList[id].language + " <i class=\'fa-solid fa-caret-down\'></i>";
         title.classList.add('centered');
 
         let box = document.querySelector(`#code_div_${id}`)
@@ -483,7 +490,7 @@ const PopulateCodingLanguagesTitles = () => {
 
       let languageName = document.createElement('h3');
       languageName.setAttribute('id', `language_name_${codingLanguagesList[i].id}`);
-      languageName.innerHTML = codingLanguagesList[i].language;
+      languageName.innerHTML = codingLanguagesList[i].language + " <i class=\'fa-solid fa-caret-left\'></i>";
 
       codeDiv.appendChild(languageName);
       boxToAppendCategoriesTo.appendChild(codeDiv);
