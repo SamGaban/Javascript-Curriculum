@@ -256,7 +256,9 @@ const PopulateEducationIndividual = (id) => {
 
 // Function to populate the "Education" tab
 
+
 const PopulateEducationTitles = () => {
+
     for (let i = 0; i < educationDictionary.length; i++) {
         let educationSubDiv = document.createElement('div');
         educationSubDiv.setAttribute('id', `education_box_${educationDictionary[i].id}`);
@@ -271,6 +273,8 @@ const PopulateEducationTitles = () => {
         boxToAppendCategoriesTo.appendChild(educationSubDiv);
         ScrollDown();
     }
+
+
 };
 
 boxToClickEducation.addEventListener('click', () => {

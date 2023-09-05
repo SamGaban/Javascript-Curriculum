@@ -100,8 +100,10 @@ body {
 /*"Browser Tabs" Section*/
 
 #tabSection { /* Whole section */
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 1rem;
 }
 
@@ -111,8 +113,9 @@ body {
     color: #EEEEEE;
     flex-grow: 1;
     font-size: calc(100%/1.5);
+    height: 3rem;
     max-width: calc(100%/3);
-    padding: 0.2rem;
+    padding: 0.4rem;
     transition-duration: 0.4s;
 
 }
