@@ -486,6 +486,7 @@ const PopulateCodingLanguagesTitles = () => {
 
       codeDiv.appendChild(languageName);
       boxToAppendCategoriesTo.appendChild(codeDiv);
+      ScrollDown();
   }
 }
 
