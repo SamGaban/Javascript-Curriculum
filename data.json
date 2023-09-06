@@ -239,5 +239,18 @@
     "<i class='fa-solid fa-caret-right'></i> Angular",
     "<i class='fa-solid fa-caret-right'></i> Node JS",
     "<i class='fa-solid fa-caret-right'></i> AI Integration"
-  ]
+  ],
+  "portfolioDictionary": [
+    {
+      "id": 0,
+      "title": "Shopping List Template WebApp",
+      "description": "Project worked on during javascript initiation at Technifutur training center"
+    },
+    {
+      "id": 1,
+      "title": "Memory Card Flip Game",
+      "description": "Project worked on during javascript training at Technifutur training center"
+    }
+  ],
+  "bio" : ["<h2><em>'A man of focus, commitment, and sheer will !'<em></h2>\n<p>As I was getting bored of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had always been there for distraction and vain hobbies, and realised it was time I put to profit this proficiency I had built over the years using numeric tools.</p>\n\n<p>Coming from 'on-the-field' jobs, having dealt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline stress'</p>"]
 }

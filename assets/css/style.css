@@ -12,6 +12,12 @@
     --highlight-color: rgba(39, 77, 236, 0.5);
     --block-background-color: #176B87;
     --block-hover-color: #64CCC5;
+    /* Miniatures of projects variable size */
+    --miniature-size: 6rem;
+    --image-size: 80vw;
+    --descFontSize: 0.75rem;
+    /*General Settings*/
+    --font-size: 16px;
 }
 
 
@@ -45,7 +51,7 @@ body {
     color: var(--font-color);
     background-color: var(--background-color);
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
+    font-size: var(--font-size);
     line-height: 1.5;
 }
 
@@ -173,6 +179,75 @@ body {
     transition-duration: 0.4s;
 }
 
+/*Browser tabs "about me" section*/
+
+#bio_box {
+    margin-bottom: 1.5rem;
+}
+
+#bio_box>p {
+    font-size: 0.7rem;
+}
+
+
+#miniature_box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    height: calc(var(--miniature-size) * 1.4);
+    justify-content: center;
+    margin: 0 0 0 0;
+    max-width: 90vw;
+}
+#miniature_box>img {
+    max-width: var(--miniature-size);
+    max-height: var(--miniature-size);
+    transition-duration: 0.5s;
+}
+
+
+#miniature_box>img:hover {
+    max-width: calc((var(--miniature-size)) * 1.2);
+    max-height: calc((var(--miniature-size)) * 1.2);
+    transition-duration: 0.5s;
+}
+
+.miniature_highlight {
+    border: 10px solid #FF4500 ;
+}
+
+
+
+#underbox {
+    text-align: center;
+}
+
+#underbox>img { /*big image display*/
+    border: 2px solid var(--accent-color);
+    max-width: var(--image-size);
+}
+
+#underbox>h2 {
+    margin-bottom: 1rem;
+}
+
+#underbox>p {
+    color: var(--font-color);
+    font-family: 'Sora', sans-serif;
+    font-size: var(--descFontSize);
+    font-weight: 400;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
 /*Browser Tabs "Skills" Section*/
 
 
@@ -190,6 +265,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    row-gap: 0.5rem;
     margin: 1rem auto;
 }
 

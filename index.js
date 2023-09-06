@@ -11,6 +11,7 @@ let educationDictionary = [];
 let codingLanguagesList = [];
 let lvlDic = [];
 let frameworksUsedList = [];
+let portfolioDictionary = [];
 // ____________________________________________________________
 
 
@@ -24,6 +25,7 @@ fetch(jsonFileUrl)
         codingLanguagesList = data.codingLanguagesList;
         lvlDic = data.lvlDic;
         frameworksUsedList = data.frameworksUsedList;
+        portfolioDictionary = data.portfolioDictionary;
     })
     .catch(error => {
         console.error('Error fetching JSON:', error);
@@ -33,6 +35,8 @@ fetch(jsonFileUrl)
 const hamburgerMenuIcon = document.querySelector('#hamburger_icon');
 const hamburgerMenu = document.querySelector('#deployable_menu');
 const boxToAppendCategoriesTo = document.querySelector('#toggleAbleBox');
+const underbox = document.querySelector('#underbox');
+const boxToClickBio = document.querySelector('#bioBox');
 const boxToClickSkills = document.querySelector('#skillBox');
 const boxToClickWorkExperience = document.querySelector('#workExperienceBox');
 const boxToClickEducation = document.querySelector('#educationBox');
@@ -161,6 +165,7 @@ document.addEventListener('click', function(event) {
 // Resetting Boxes function
 
 const RefreshBoxToBasicState = () => { // emptying the box each category is appended to in order to refresh
+    underbox.innerHTML = "";
     boxToAppendCategoriesTo.innerHTML = "";
     skillsTabOpened = false;
 };
@@ -169,6 +174,86 @@ const RefreshBoxToBasicState = () => { // emptying the box each category is appe
 // About me Tab ____________________________________________________________________________________
 
 
+const PopulatePortfolioDetails = (id) => { // Populating details once a miniature is clicked
+    PortofolioDeploy();
+
+    let miniature = document.querySelector(`#miniature_${id}`);
+    miniature.classList.add('miniature_highlight');
+
+
+    let divToAppend = document.querySelector('#underbox');
+    divToAppend.innerHTML = "";
+
+    let imagesrc = `./assets/images/projectimgs/${id}.png`;
+    let titlesrc = portfolioDictionary[id].title;
+    let descsrc = portfolioDictionary[id].description;
+
+    let image = document.createElement('img');
+    let titled = document.createElement('h2');
+    let description = document.createElement('p');
+
+    image.setAttribute('src', imagesrc);
+    titled.innerHTML = titlesrc;
+    description.innerHTML = descsrc;
+
+    divToAppend.appendChild(image);
+    divToAppend.appendChild(titled);
+    divToAppend.appendChild(description);
+
+    ScrollDown();
+
+}
+
+const PopulateBio = () => {
+    let bio = document.createElement('div');
+    bio.setAttribute('id', 'bio_box');
+    bio.innerHTML = "<p><em>'A man of focus, commitment, and sheer will!'</em></p><br>\n<p>As I was getting bore" +
+        "d of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had alwa" +
+        "ys been there for distraction and vain hobbies, and realised it was time I put to profit this proficienc" +
+        "y I had built over the years using numeric tools.</p>\n<br>\n<p>Coming from 'on-the-field' jobs, having dea" +
+        "lt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline st" +
+        "ress', so, bring it on!</p>"
+
+    boxToAppendCategoriesTo.appendChild(bio);
+}
+
+
+
+const PortofolioDeploy = () => { // Displaying the short bio and the miniature "slideshow" (rip)
+    RefreshBoxToBasicState();
+
+    let box = document.createElement('div');
+    box.setAttribute('id', 'miniature_box');
+
+    for (let i = 0; i < portfolioDictionary.length; i ++) {
+
+        let smallsrc = `./assets/images/projectimgs/${portfolioDictionary[i].id}m.png`;
+
+
+        let miniature = document.createElement('img');
+        miniature.classList.add('all_miniatures');
+        miniature.setAttribute('id', `miniature_${portfolioDictionary[i].id}`);
+        miniature.setAttribute('src', smallsrc);
+
+        miniature.setAttribute('onclick', `PopulatePortfolioDetails(${portfolioDictionary[i].id})`);
+
+
+        box.appendChild(miniature);
+
+    }
+
+    PopulateBio();
+
+    boxToAppendCategoriesTo.appendChild(box);
+
+}
+
+
+boxToClickBio.addEventListener('click', () => {
+    RefreshBoxToBasicState();
+    PortofolioDeploy();
+    ScrollDown();
+})
 
 
 
@@ -534,6 +619,12 @@ const PopulateFrameworksTab = () => {
 
 boxToClickFrameworks.addEventListener('click', () => {
     PopulateFrameworksTab();
-})
+});
 
 // Hobbies _________________________________________________________________________________________________________
+
+
+
+
+// Initialize ___________________________________________________________________________________________________
+// PortofolioDeploy();
