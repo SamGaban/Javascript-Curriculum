@@ -49,7 +49,7 @@ const ScrollDown = () => {
     window.scrollTo(0, pageHeight);
 };
 
-let darkmode = true;
+let darkmode = true; // Default page dark mode activation
 
 // Hamburger menu
 let hamburgerMenuDeployed = false;
@@ -59,6 +59,8 @@ hamburgerMenuIcon.addEventListener('click', () => {
     let root = document.querySelector(':root'); // targetting root for the color shift
 
     let profilePicture = document.querySelector('#profilePicture');
+
+    let lightLogo = document.querySelector('#light_switch_logo');
 
     // Creating the nav bar hamburger menu items
     let menuItemOne = document.createElement('li');
@@ -101,6 +103,12 @@ hamburgerMenuIcon.addEventListener('click', () => {
                 skillGraph.setAttribute('src', './assets/images/graphL.png')
             }
 
+            lightLogo.classList.remove('fa-moon');
+            lightLogo.classList.add('fa-sun')
+
+            hamburgerMenu.innerHTML = "";
+            hamburgerMenuDeployed = false;
+
 
         } else { // Turning darkmode on
             menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
@@ -118,6 +126,12 @@ hamburgerMenuIcon.addEventListener('click', () => {
                 let skillGraph = document.querySelector('#skill_graph');
                 skillGraph.setAttribute('src', './assets/images/graph.png')
             }
+
+            lightLogo.classList.remove('fa-sun')
+            lightLogo.classList.add('fa-moon');
+
+            hamburgerMenu.innerHTML = "";
+            hamburgerMenuDeployed = false;
         }
     })
 
@@ -128,6 +142,19 @@ hamburgerMenuIcon.addEventListener('click', () => {
         hamburgerMenu.appendChild(menuItemFour);
     } else { // closing the burger menu if clicked when opened
         hamburgerMenu.innerHTML = "";
+    }
+});
+
+// Closing the hamburger menu / navbar if clicked outside of it
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is not part of the navbar
+    let navbar = document.getElementById('navbar');
+    let clickedElement = event.target;
+
+    if (!navbar.contains(clickedElement)) {
+        // Clicked outside of the navbar, so close it
+        hamburgerMenu.innerHTML = "";
+        hamburgerMenuDeployed = false;
     }
 });
 

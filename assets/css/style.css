@@ -105,6 +105,10 @@ body {
     transition-duration: 0.4s;
 }
 
+#hamburger_icon:hover {
+    cursor: pointer;
+}
+
 /*Header section*/
 
 #headerDivision { /* Whole division*/
