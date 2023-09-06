@@ -4,12 +4,25 @@
 /*font-family: 'IBM Plex Mono', monospace; */
 /*font-family: 'Sora', sans-serif;*/
 
+/*Color Variables */
+:root {
+    --font-color: #EEEEEE;
+    --accent-color: #00FF00;
+    --background-color: #053B50;
+    --highlight-color: rgba(39, 77, 236, 0.5);
+    --block-background-color: #176B87;
+    --block-hover-color: #64CCC5;
+}
+
+
+
+/*__________________________________*/
 html {
     scroll-behavior: smooth;
 }
 
 .fa-solid {
-    color: #00FF00;
+    color: var(--accent-color);
 }
 
 
@@ -29,8 +42,8 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
 
 /* Set a base font size and line height for better readability */
 body {
-    color: #EEEEEE;
-    background-color: #053B50;
+    color: var(--font-color);
+    background-color: var(--background-color);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 16px;
     line-height: 1.5;
@@ -44,7 +57,7 @@ body {
 }
 
 .boxed {
-    border: 1px solid #00FF00;
+    border: 1px solid var(--accent-color);
     padding: 0.4rem;
 }
 
@@ -53,7 +66,7 @@ body {
 }
 
 .highlighted:hover {
-    background-color: rgba(39, 77, 236, 0.5);
+    background-color: var(--highlight-color);
     cursor: pointer;
     transition-duration: 0.3s;
 }
@@ -69,8 +82,9 @@ body {
 /*Navigation bar*/
 
 .navbar { /* Whole Division */
-    color: #053B50;
-    background-color: #176B87;
+    color: var(--font-color);
+    background-color: var(--block-background-color);
+    border-bottom: 1px solid var(--font-color);
     text-align: right;
     margin: 0 0 1rem 0;
     padding: 0.3rem 1rem;
@@ -86,7 +100,7 @@ body {
 }
 
 .navbar>ul>li:hover { /* list items on hover*/
-    color: #64CCC5;
+    color: var(--accent-color);
     cursor: pointer;
     transition-duration: 0.4s;
 }
@@ -126,9 +140,9 @@ body {
 #tabSection>div { /* Individual categories */
     align-items: center;
     align-content: center;
-    background-color: #176B87;
+    background-color: var(--block-background-color);
     border: 1px solid black;
-    color: #EEEEEE;
+    color: var(--font-color);
     display: flex;
     flex-grow: 1;
     font-size: calc(100%/1.5);
@@ -143,7 +157,7 @@ body {
 
 #tabSection>div:hover {
     color: black;
-    background-color: #64CCC5;
+    background-color: var(--block-hover-color);
     cursor: pointer;
     transition-duration: 0.4s;
 }
@@ -156,7 +170,7 @@ body {
 }
 
 .individual_language_box {
-    border: 1px solid #00FF00;
+    border: 1px solid var(--accent-color);
     max-width: calc(100%/2);
     padding: 0.3rem;
 }
@@ -175,7 +189,7 @@ body {
 }
 
 #workExperienceBoxList>h6 { /* title boxes */
-    color: #EEEEEE;
+    color: var(--font-color);
     margin-bottom: 1rem;
     padding: 0.3rem;
 }
@@ -189,7 +203,7 @@ body {
 }
 
 #workExperienceBoxList>h6>ul>.list_separator {
-    border-color: #00FF00;
+    border-color: var(--accent-color);
     max-width: 75%;
     margin-left: 0;
 }

@@ -49,16 +49,22 @@ const ScrollDown = () => {
     window.scrollTo(0, pageHeight);
 };
 
+let darkmode = true;
 
 // Hamburger menu
 let hamburgerMenuDeployed = false;
 hamburgerMenuIcon.addEventListener('click', () => {
     hamburgerMenuDeployed = !hamburgerMenuDeployed;
 
+    let root = document.querySelector(':root'); // targetting root for the color shift
+
+    let profilePicture = document.querySelector('#profilePicture');
+
     // Creating the nav bar hamburger menu items
     let menuItemOne = document.createElement('li');
     let menuItemTwo = document.createElement('li');
     let menuItemThree = document.createElement('li');
+    let menuItemFour = document.createElement('li');
     menuItemOne.textContent = "test";
     // menuItemOne.addEventListener('click', () => {
     //     open("https://samgaban.github.io/curriculum/"); // Actions when clicking on navbar items
@@ -71,11 +77,55 @@ hamburgerMenuIcon.addEventListener('click', () => {
     menuItemThree.addEventListener('click', () => {
         open("https://samgaban.github.io/curriculum/"); // OLD CV Test
     })
+    if (darkmode) { // Setting for the toggle switch button to display properly if navbar closed and reopened
+        menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
+    } else {
+        menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-off\'></i>";
+    }
+
+    menuItemFour.addEventListener('click', () => { // dark theme toggle off / on
+        if (darkmode) { // Turning lightmode on
+            menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-off\'></i>";
+            darkmode = !darkmode;
+            root.style.setProperty('--font-color', '#333333');
+            root.style.setProperty('--accent-color', '#FF9900');
+            root.style.setProperty('--background-color', '#F5F5F5');
+            root.style.setProperty('--highlight-color', '#0077B6');
+            root.style.setProperty('--block-background-color', '#E0E0E0');
+            root.style.setProperty('--block-hover-color', '#D3D3D3');
+
+            profilePicture.setAttribute('src', './assets/images/profileL.png') // changing PP
+
+            if (skillsTabOpened) { // changing graph color
+                let skillGraph = document.querySelector('#skill_graph');
+                skillGraph.setAttribute('src', './assets/images/graphL.png')
+            }
+
+
+        } else { // Turning darkmode on
+            menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
+            darkmode = !darkmode;
+            root.style.setProperty('--font-color', '#EEEEEE');
+            root.style.setProperty('--accent-color', '#00FF00');
+            root.style.setProperty('--background-color', '#053B50');
+            root.style.setProperty('--highlight-color', 'rgba(39, 77, 236, 0.5)');
+            root.style.setProperty('--block-background-color', '#176B87');
+            root.style.setProperty('--block-hover-color', '#64CCC5');
+
+            profilePicture.setAttribute('src', './assets/images/profile.png') // changing PP
+
+            if (skillsTabOpened) { // changing graph color
+                let skillGraph = document.querySelector('#skill_graph');
+                skillGraph.setAttribute('src', './assets/images/graph.png')
+            }
+        }
+    })
 
     if (hamburgerMenuDeployed) { // populating burger menu items
         hamburgerMenu.appendChild(menuItemOne);
         hamburgerMenu.appendChild(menuItemTwo);
         hamburgerMenu.appendChild(menuItemThree);
+        hamburgerMenu.appendChild(menuItemFour);
     } else { // closing the burger menu if clicked when opened
         hamburgerMenu.innerHTML = "";
     }
@@ -85,19 +135,28 @@ hamburgerMenuIcon.addEventListener('click', () => {
 
 const RefreshBoxToBasicState = () => { // emptying the box each category is appended to in order to refresh
     boxToAppendCategoriesTo.innerHTML = "";
+    skillsTabOpened = false;
 };
 
 
 // Skills
 
-
+let skillsTabOpened = false;
 boxToClickSkills.addEventListener('click', () => { // When you click the "skills" tab
     RefreshBoxToBasicState();
+
+    skillsTabOpened = true;
 
     let toAppend = document.createElement('div');
     toAppend.setAttribute('id', 'skillBoxList');
     let elementToAppend = document.createElement('img');
-    elementToAppend.setAttribute('src', './assets/images/graph.png')
+    elementToAppend.setAttribute('id', 'skill_graph');
+    if (darkmode) { // Changing graph color to display relative to actual light mode (dark)
+        elementToAppend.setAttribute('src', './assets/images/graph.png')
+    } else { // Changing graph color to display relative to actual light mode (light)
+        elementToAppend.setAttribute('src', './assets/images/graphL.png')
+    }
+
     toAppend.appendChild(elementToAppend);
 
 
