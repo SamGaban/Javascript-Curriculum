@@ -102,5 +102,135 @@
       "date": "<i class='fa-solid fa-calendar-days'></i> September 2013 - June 2015",
       "location": "<i class='fa-solid fa-location-dot'></i> Namur, BELGIUM"
     }
+  ],
+  "codingLanguagesList": [
+    {
+      "id": 0,
+      "language": "<i class='fa-solid fa-brands fa-python'></i> Python",
+      "codinggame": 12,
+      "hackerrank": 10,
+      "leetcode": 0
+    },
+    {
+      "id": 1,
+      "language": "<i class='fa-solid fa-brands fa-js'></i> Javascript",
+      "codinggame": 0,
+      "hackerrank": 0,
+      "leetcode": 0
+    },
+    {
+      "id": 2,
+      "language": "<i class='fa-solid fa-c'></i><i class='fa-solid fa-hashtag'></i> C Sharp",
+      "codinggame": 0,
+      "hackerrank": 0,
+      "leetcode": 0
+    }
+  ],
+  "lvlDic": [
+    {
+      "lvl": 0,
+      "min": -5,
+      "max": -1
+    },
+    {
+      "lvl": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "lvl": 2,
+      "min": 6,
+      "max": 10
+    },
+    {
+      "lvl": 3,
+      "min": 11,
+      "max": 15
+    },
+    {
+      "lvl": 4,
+      "min": 16,
+      "max": 20
+    },
+    {
+      "lvl": 5,
+      "min": 21,
+      "max": 25
+    },
+    {
+      "lvl": 6,
+      "min": 26,
+      "max": 30
+    },
+    {
+      "lvl": 7,
+      "min": 31,
+      "max": 35
+    },
+    {
+      "lvl": 8,
+      "min": 36,
+      "max": 40
+    },
+    {
+      "lvl": 9,
+      "min": 41,
+      "max": 45
+    },
+    {
+      "lvl": 10,
+      "min": 46,
+      "max": 50
+    },
+    {
+      "lvl": 11,
+      "min": 51,
+      "max": 60
+    },
+    {
+      "lvl": 12,
+      "min": 61,
+      "max": 70
+    },
+    {
+      "lvl": 13,
+      "min": 71,
+      "max": 85
+    },
+    {
+      "lvl": 14,
+      "min": 86,
+      "max": 100
+    },
+    {
+      "lvl": 15,
+      "min": 101,
+      "max": 120
+    },
+    {
+      "lvl": 16,
+      "min": 121,
+      "max": 140
+    },
+    {
+      "lvl": 17,
+      "min": 141,
+      "max": 165
+    },
+    {
+      "lvl": 18,
+      "min": 166,
+      "max": 190
+    },
+    {
+      "lvl": 19,
+      "min": 191,
+      "max": 250
+    },
+    {
+      "lvl": 20,
+      "min": 251,
+      "max": 300
+    }
   ]
 }

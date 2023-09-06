@@ -1,23 +1,32 @@
 // <i class=\'fa-solid fa-caret-down\'></i>
 // <i class=\'fa-solid fa-caret-left\'></i>
 
+// Define the URL of the JSON file on your local server
+const jsonFileUrl = './data.json';
 
-// XP For Coding languages XP Bar
-//Python
-const pCodinGames = 12;
-const pHackerRank = 10;
-const pLeetCode = 0;
+// ____________________________________________________________
+let languagesSpoken = [];
+let workExperienceList = [];
+let educationDictionary = [];
+let codingLanguagesList = [];
+let lvlDic = [];
+// ____________________________________________________________
 
-// Javascript
-const jCodinGames = 0;
-const jHackerRank = 0;
-const jLeetCode = 0;
 
-// C#
-const cCodinGames = 0;
-const cHackerRank = 0;
-const cLeetCode = 0;
-
+// Fetch the JSON data
+fetch(jsonFileUrl)
+    .then(response => response.json())
+    .then(data => {
+        // You can now work with the JSON data here
+        languagesSpoken = data.languagesSpoken;
+        workExperienceList = data.workExperienceList;
+        educationDictionary = data.educationDictionary;
+        codingLanguagesList = data.codingLanguagesList;
+        lvlDic = data.lvlDic;
+    })
+    .catch(error => {
+        console.error('Error fetching JSON:', error);
+    });
 
 // Variables defining
 const hamburgerMenuIcon = document.querySelector('#hamburger_icon');
@@ -75,23 +84,6 @@ const RefreshBoxToBasicState = () => { // emptying the box items appended to it
 // Skills
 
 
-const languagesSpoken = [
-    {id:0,
-    language:"English",
-    level:"C2"},
-    {id:1,
-    language:"French",
-    level:"C2"},
-    {id:2,
-    language:"Dutch",
-    level:"A2"},
-    {id:3,
-    language:"Swedish",
-    level:"A1"}
-];
-
-
-
 boxToClickSkills.addEventListener('click', () => { // When you click the "skills" main box
     RefreshBoxToBasicState();
 
@@ -123,54 +115,6 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
 });
 
 // Work Experience
-
-const workExperienceList = [
-
-    {id:0,
-    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> L'aile ou la cuisse<br><i class=\'fa-solid fa-hammer\'></i> Co-Founder & Manager",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Waremme, Belgium",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> November 2021 - December 2022",
-    items:[
-        "Managing, training, and supervising staff.",
-        "Managing budgets",
-        "Developing corporate identity (visuals, social media accounts) and managing marketing campaigns",
-        "Ensuring compliance with licensing, hygiene, health and safety legislations."]
-    },
-    {id:1,
-    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> GSK Pharmaceutics<br><i class=\'fa-solid fa-hammer\'></i> Security / Welcome Desk",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Wavre, Belgium",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> March 2020 - November 2021",
-    items:[
-        "Handling internal security / site access / IT related tickets.",
-        "Welcoming VIP, managing their safe access to the site, and creating their site-wide credentials.",
-        "Conflict resolution and prevention."
-    ]
-    },
-    {id:2,
-    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Brussels Exposition Park<br><i class=\'fa-solid fa-hammer\'></i> Security / Team Leader",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Brussels, Belgium",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2019 - March 2020",
-    items:[
-        "Managing and securing major public events, their assembling, and disassembling."
-        ]
-    },
-    {id:3,
-    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> St-John's International School<br><i class=\'fa-solid fa-hammer\'></i> Qualified Static Agent",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Waterloo, Belgium",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2018 - January 2019",
-    items:[
-        "Securing of high-profile private school and hosting of various VIP events."
-        ]
-    },
-    {id:4,
-    job:"<i class=\'fa-solid fa-location-crosshairs\'></i> Slogans SPRL<br><i class=\'fa-solid fa-hammer\'></i> Graphic Designer / Assistant to the manager",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Floreffe, Belgium",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> June 2015 - September 2017",
-    items:[
-        "Readying advertising files for printing and cutting / Managing client relationships"
-        ]
-    },
-];
 
 let titleBoxOpenedState = "";
 
@@ -244,36 +188,6 @@ boxToClickWorkExperience.addEventListener('click', () => { // adding functionali
 });
 
 // Education Tabs
-
-// Education Object
-
-const educationDictionary = [
-    {id:0,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> AI Integration Specialized Web Developer",
-    name:"<i class='fa-solid fa-school-flag'></i> Technifutur",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> July 2023 - Ongoing",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Seraing - Belgium"
-    },
-    {id:1,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Python & Full Stack Web Developer",
-    name:"<i class='fa-solid fa-school-flag'></i> The App Brewery (Through Udemy)",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> December 2022 - June 2023",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> London, England"
-    },
-    {id:2,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Assistant to the prevention and security professions",
-    name:"<i class='fa-solid fa-school-flag'></i> Namur Technical Institute",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2017 - June 2018",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
-    },
-    {id:3,
-    type:"<i class=\'fa-solid fa-graduation-cap\'></i> Graphic industries technician",
-    name:"<i class='fa-solid fa-school-flag'></i> Institute of Technical Arts Education",
-    date:"<i class=\'fa-solid fa-calendar-days\'></i> September 2013 - June 2015",
-    location:"<i class=\'fa-solid fa-location-dot\'></i> Namur, BELGIUM"
-    }
-];
-
 
 // Function to populate the Education titles with the rest of information
 
@@ -351,24 +265,6 @@ boxToClickEducation.addEventListener('click', () => {
 });
 
 // "Coding Languages" Tab
-
-const codingLanguagesList = [
-    {id:0,
-    language:"<i class='fa-solid fa-brands fa-python'></i> Python",
-    codinggame:pCodinGames,
-    hackerrank:pHackerRank,
-    leetcode:pLeetCode},
-    {id:1,
-    language:"<i class='fa-solid fa-brands fa-js'></i> Javascript",
-    codinggame:jCodinGames,
-    hackerrank:jHackerRank,
-    leetcode:jLeetCode},
-    {id:2,
-    language:"<i class='fa-solid fa-c'></i><i class='fa-solid fa-hashtag'></i> C Sharp",
-    codinggame:cCodinGames,
-    hackerrank:cHackerRank,
-    leetcode:cLeetCode}
-];
 
 // Populating each code language title when clicking on it
 
@@ -503,42 +399,6 @@ boxToClickCodingLanguages.addEventListener('click', () => {
     PopulateCodingLanguagesTitles();
 });
 
-const lvlDic = [
-    {lvl:0, min:-5, max:-1},
-    {lvl:1, min:0, max:5},
-    {lvl:2, min:6, max:10},
-    {lvl:3, min:11, max:15},
-    {lvl:4, min:16, max:20},
-    {lvl:5, min:21, max:25},
-    {lvl:6, min:26, max:30},
-    {lvl:7, min:31, max:35},
-    {lvl:8, min:36, max:40},
-    {lvl:9, min:41, max:45},
-    {lvl:10, min:46, max:50},
-    {lvl:11, min:51, max:60},
-    {lvl:12, min:61, max:70},
-    {lvl:13, min:71, max:85},
-    {lvl:14, min:86, max:100},
-    {lvl:15, min:101, max:120},
-    {lvl:16, min:121, max:140},
-    {lvl:17, min:141, max:165},
-    {lvl:18, min:166, max:190},
-    {lvl:19, min:191, max:250},
-    {lvl:20, min:251, max:300},
-];
-
 // Frameworks used tab
 
-// Define the URL of the JSON file on your local server
-const jsonFileUrl = './data.json';
 
-// Fetch the JSON data
-fetch(jsonFileUrl)
-    .then(response => response.json())
-    .then(data => {
-        // You can now work with the JSON data here
-        console.log(data.languagesSpoken[1]); // Output: John Doe
-    })
-    .catch(error => {
-        console.error('Error fetching JSON:', error);
-    });
