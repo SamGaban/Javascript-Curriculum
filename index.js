@@ -1,34 +1,35 @@
 // <i class=\'fa-solid fa-caret-down\'></i>
 // <i class=\'fa-solid fa-caret-left\'></i>
 
-// Define the URL of the JSON file on your local server
-const jsonFileUrl = './data.json';
 
-// ____________________________________________________________
+const jsonFileUrl = './data.json'; // Local JSON Url
+
+// ____________________________________________________________ Defining variables for the data objects
 let languagesSpoken = [];
 let workExperienceList = [];
 let educationDictionary = [];
 let codingLanguagesList = [];
 let lvlDic = [];
+let frameworksUsedList = [];
 // ____________________________________________________________
 
 
-// Fetch the JSON data
+// Fetching the JSON data
 fetch(jsonFileUrl)
     .then(response => response.json())
-    .then(data => {
-        // You can now work with the JSON data here
+    .then(data => { // Filling the created variables with objects (lists of objects)
         languagesSpoken = data.languagesSpoken;
         workExperienceList = data.workExperienceList;
         educationDictionary = data.educationDictionary;
         codingLanguagesList = data.codingLanguagesList;
         lvlDic = data.lvlDic;
+        frameworksUsedList = data.frameworksUsedList;
     })
     .catch(error => {
         console.error('Error fetching JSON:', error);
     });
 
-// Variables defining
+// Variables defining / Specifying elements from the html
 const hamburgerMenuIcon = document.querySelector('#hamburger_icon');
 const hamburgerMenu = document.querySelector('#deployable_menu');
 const boxToAppendCategoriesTo = document.querySelector('#toggleAbleBox');
@@ -54,15 +55,21 @@ let hamburgerMenuDeployed = false;
 hamburgerMenuIcon.addEventListener('click', () => {
     hamburgerMenuDeployed = !hamburgerMenuDeployed;
 
-    // Creating the menu
+    // Creating the nav bar hamburger menu items
     let menuItemOne = document.createElement('li');
     let menuItemTwo = document.createElement('li');
     let menuItemThree = document.createElement('li');
     menuItemOne.textContent = "test";
+    // menuItemOne.addEventListener('click', () => {
+    //     open("https://samgaban.github.io/curriculum/"); // Actions when clicking on navbar items
+    // })
     menuItemTwo.textContent = "plop";
+    // menuItemTwo.addEventListener('click', () => {
+    //     open("https://samgaban.github.io/curriculum/");
+    // })
     menuItemThree.textContent = "Old CV";
     menuItemThree.addEventListener('click', () => {
-        open("https://samgaban.github.io/curriculum/");
+        open("https://samgaban.github.io/curriculum/"); // OLD CV Test
     })
 
     if (hamburgerMenuDeployed) { // populating burger menu items
@@ -76,7 +83,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
 
 // Resetting Boxes function
 
-const RefreshBoxToBasicState = () => { // emptying the box items appended to it
+const RefreshBoxToBasicState = () => { // emptying the box each category is appended to in order to refresh
     boxToAppendCategoriesTo.innerHTML = "";
 };
 
@@ -84,7 +91,7 @@ const RefreshBoxToBasicState = () => { // emptying the box items appended to it
 // Skills
 
 
-boxToClickSkills.addEventListener('click', () => { // When you click the "skills" main box
+boxToClickSkills.addEventListener('click', () => { // When you click the "skills" tab
     RefreshBoxToBasicState();
 
     let toAppend = document.createElement('div');
@@ -116,7 +123,7 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
 
 // Work Experience
 
-let titleBoxOpenedState = "";
+let titleBoxOpenedState = ""; // State variable used to define is the specific title is already opened on click
 
 // Function to populate the work experience tabs when clicking on titles
 const PopulateWorkExperienceIndividual = (id) => {
@@ -126,11 +133,11 @@ const PopulateWorkExperienceIndividual = (id) => {
     // creating a conditional that closes the titles if you click on them and
     // they are opened already
 
-    if (titleBoxOpenedState === `open${id}`) {
+    if (titleBoxOpenedState === `open${id}`) { // If the "opened" state of the specific title is already on
         titleBoxOpenedState = "";
-        RefreshBoxToBasicState();
+        RefreshBoxToBasicState(); // Refreshing / Closing => Reopening the tab (work experience)
         PopulateWorkExperienceTitles();
-    } else {
+    } else { // If it's no already opened => Opening sequence
         titleBoxOpenedState = `open${id}`
 
 
@@ -189,9 +196,9 @@ boxToClickWorkExperience.addEventListener('click', () => { // adding functionali
 
 // Education Tabs
 
-// Function to populate the Education titles with the rest of information
+// Function to populate the Education specific titles with the full info
 
-let educationBoxOpenedState = "";
+let educationBoxOpenedState = ""; // State variable to check opened state
 
 const PopulateEducationIndividual = (id) => {
 
@@ -199,7 +206,7 @@ const PopulateEducationIndividual = (id) => {
         RefreshBoxToBasicState();
         PopulateEducationTitles();
         educationBoxOpenedState = "";
-    } else { // else => open
+    } else { // else => opening sequence
         educationBoxOpenedState = `open_${id}`
 
         RefreshBoxToBasicState();
@@ -238,7 +245,7 @@ const PopulateEducationIndividual = (id) => {
 // Function to populate the "Education" tab
 
 
-const PopulateEducationTitles = () => {
+const PopulateEducationTitles = () => { // Populating the education tab with clickable titles when opening tab
 
     for (let i = 0; i < educationDictionary.length; i++) {
         let educationSubDiv = document.createElement('div');
@@ -268,15 +275,15 @@ boxToClickEducation.addEventListener('click', () => {
 
 // Populating each code language title when clicking on it
 
-let codeLanguageTabDisplaying = "";
+let codeLanguageTabDisplaying = ""; // State check variable to see if specific title already opened
 
 const PopulateCodingLanguagesIndividual = (id) => {
 
-    if (codeLanguageTabDisplaying === `language${id}`) {
+    if (codeLanguageTabDisplaying === `language${id}`) { // If specific title already opened => Refresh
         RefreshBoxToBasicState();
         PopulateCodingLanguagesTitles();
         codeLanguageTabDisplaying = "";
-    } else {
+    } else { // If specific title not already opened, opening sequence for specific title
 
         codeLanguageTabDisplaying = `language${id}`;
         RefreshBoxToBasicState();
@@ -317,10 +324,10 @@ const PopulateCodingLanguagesIndividual = (id) => {
         }
 
         let totalPointsInLevel = lvlDic[actualLvl].max - lvlDic[actualLvl].min;
-        let progression = xpCount - lvlDic[actualLvl].min;
+        let progression = xpCount - lvlDic[actualLvl].min; // calculating current xp, xp left before lvl up
         let percentage = ((progression / totalPointsInLevel) * 100).toFixed(2);
 
-        if (0 <= percentage && percentage <= 15) {
+        if (0 <= percentage && percentage <= 15) { // Defining the img src of the xp bar related to current xp
             imgsrc = "xp10"
         } else if (16 <= percentage && percentage <= 25) {
             imgsrc = "xp20"
@@ -348,10 +355,10 @@ const PopulateCodingLanguagesIndividual = (id) => {
 
         let percentageDisplay = document.createElement('p');
         percentageDisplay.textContent = `${percentage}%`;
-        percentageDisplay.style.color = "black";
+        percentageDisplay.style.color = "white";
         percentageDisplay.classList.add('percentageLevel');
 
-        let xpbar = document.createElement('div');
+        let xpbar = document.createElement('div'); // xpbar is a background image of div
         xpbar.classList.add('xpbar');
         xpbar.classList.add(imgsrc);
         xpbar.appendChild(percentageDisplay);
@@ -376,7 +383,7 @@ const PopulateCodingLanguagesIndividual = (id) => {
 
 // Populating the "coding languages" tab
 
-const PopulateCodingLanguagesTitles = () => {
+const PopulateCodingLanguagesTitles = () => { // Populating the "coding language" tab on click
   for (let i = 0; i < codingLanguagesList.length; i++) {
       let codeDiv = document.createElement('div');
       codeDiv.setAttribute('id', `code_div_${codingLanguagesList[i].id}`);
@@ -399,6 +406,39 @@ boxToClickCodingLanguages.addEventListener('click', () => {
     PopulateCodingLanguagesTitles();
 });
 
+
 // Frameworks used tab
 
+const PopulateFrameworksTab = () => {
+    RefreshBoxToBasicState();
 
+    for (let i = 0; i < frameworksUsedList.length; i ++) {
+
+        let box = document.createElement('div');
+        box.classList.add('frameworks_used');
+
+        let framework = document.createElement('h3');
+        framework.innerHTML = `${frameworksUsedList[i]}`;
+
+        box.appendChild(framework);
+
+        box.addEventListener('mouseover', () => {
+            box.classList.add('highlighted');
+            box.classList.add('boxed');
+        })
+
+        box.addEventListener('mouseout', () => {
+            box.classList.remove('highlighted');
+            box.classList.remove('boxed');
+        })
+
+        boxToAppendCategoriesTo.appendChild(box);
+
+    }
+}
+
+boxToClickFrameworks.addEventListener('click', () => {
+    PopulateFrameworksTab();
+})
+
+// Hobbies

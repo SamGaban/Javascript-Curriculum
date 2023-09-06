@@ -232,5 +232,12 @@
       "min": 251,
       "max": 300
     }
+  ],
+  "frameworksUsedList": [
+    "<i class='fa-solid fa-caret-right'></i> ASP .Net MVC",
+    "<i class='fa-solid fa-caret-right'></i> API Net Core",
+    "<i class='fa-solid fa-caret-right'></i> Angular",
+    "<i class='fa-solid fa-caret-right'></i> Node JS",
+    "<i class='fa-solid fa-caret-right'></i> AI Integration"
   ]
 }
