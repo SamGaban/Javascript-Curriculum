@@ -51,7 +51,7 @@ const ScrollDown = () => {
 
 let darkmode = true; // Default page dark mode activation
 
-// Hamburger menu
+// Hamburger menu ____________________________________________________________________________________
 let hamburgerMenuDeployed = false;
 hamburgerMenuIcon.addEventListener('click', () => {
     hamburgerMenuDeployed = !hamburgerMenuDeployed;
@@ -166,7 +166,13 @@ const RefreshBoxToBasicState = () => { // emptying the box each category is appe
 };
 
 
-// Skills
+// About me Tab ____________________________________________________________________________________
+
+
+
+
+
+// Skills Tab ____________________________________________________________________________________
 
 let skillsTabOpened = false;
 boxToClickSkills.addEventListener('click', () => { // When you click the "skills" tab
@@ -207,7 +213,7 @@ boxToClickSkills.addEventListener('click', () => { // When you click the "skills
     ScrollDown();
 });
 
-// Work Experience
+// Work Experience Tab ____________________________________________________________________________________
 
 let titleBoxOpenedState = ""; // State variable used to define is the specific title is already opened on click
 
@@ -228,7 +234,8 @@ const PopulateWorkExperienceIndividual = (id) => {
 
 
         let containerToAppendTo = document.querySelector(`#work_experience_${id}`);
-        containerToAppendTo.style.border = '1px solid white';
+        containerToAppendTo.classList.add('boxed');
+        containerToAppendTo.classList.add('continuouslyHighlighted');
         containerToAppendTo.innerHTML = workExperienceList[id].job + " <i class='fa-solid fa-caret-down'></i>";
         let date = document.createElement('h6');
         let location = document.createElement('h6');
@@ -258,8 +265,9 @@ const PopulateWorkExperienceIndividual = (id) => {
 
 
 // Function that shows the titles of work experiences in the tab
-
+// -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 const PopulateWorkExperienceTitles = () => { // Creates the clickable titles of work experiences
+
     let toAppend = document.createElement('div');
     toAppend.setAttribute("id", "workExperienceBoxList") // to append
 
@@ -280,7 +288,7 @@ boxToClickWorkExperience.addEventListener('click', () => { // adding functionali
     PopulateWorkExperienceTitles()
 });
 
-// Education Tabs
+// Education Tab _________________________________________________________________________________________________
 
 // Function to populate the Education specific titles with the full info
 
@@ -305,6 +313,7 @@ const PopulateEducationIndividual = (id) => {
         // title.innerHTML = educationDictionary[id].type + " test";
 
         let boxToAppendTo = document.querySelector(`#education_box_${id}`)
+        boxToAppendTo.classList.add('continuouslyHighlighted');
 
         let establishment = document.createElement('h6');
         establishment.innerHTML = educationDictionary[id].name;
@@ -327,7 +336,7 @@ const PopulateEducationIndividual = (id) => {
 }
 
 
-
+// -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 // Function to populate the "Education" tab
 
 
@@ -357,7 +366,7 @@ boxToClickEducation.addEventListener('click', () => {
     PopulateEducationTitles();
 });
 
-// "Coding Languages" Tab
+// "Coding Languages" Tab _______________________________________________________________________________________
 
 // Populating each code language title when clicking on it
 
@@ -380,7 +389,7 @@ const PopulateCodingLanguagesIndividual = (id) => {
         title.classList.add('centered');
 
         let box = document.querySelector(`#code_div_${id}`)
-        box.classList.add('highlighted');
+        box.classList.add('continuouslyHighlighted');
         box.classList.add('boxed');
 
         let one = parseInt(codingLanguagesList[id].codinggame);
@@ -465,7 +474,7 @@ const PopulateCodingLanguagesIndividual = (id) => {
 
     }
 }
-
+// -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
 // Populating the "coding languages" tab
 
@@ -493,7 +502,7 @@ boxToClickCodingLanguages.addEventListener('click', () => {
 });
 
 
-// Frameworks used tab
+// Frameworks used tab ___________________________________________________________________________________________
 
 const PopulateFrameworksTab = () => {
     RefreshBoxToBasicState();
@@ -527,4 +536,4 @@ boxToClickFrameworks.addEventListener('click', () => {
     PopulateFrameworksTab();
 })
 
-// Hobbies
+// Hobbies _________________________________________________________________________________________________________

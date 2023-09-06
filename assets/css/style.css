@@ -65,6 +65,13 @@ body {
     transition-duration: 0.3s;
 }
 
+.continuouslyHighlighted {
+    background-color: var(--highlight-color);
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+
 .highlighted:hover {
     background-color: var(--highlight-color);
     cursor: pointer;
