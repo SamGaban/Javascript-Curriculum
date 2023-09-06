@@ -110,8 +110,8 @@ hamburgerMenuIcon.addEventListener('click', () => {
             lightLogo.classList.remove('fa-moon');
             lightLogo.classList.add('fa-sun')
 
-            hamburgerMenu.innerHTML = "";
-            hamburgerMenuDeployed = false;
+            // hamburgerMenu.innerHTML = "";
+            // hamburgerMenuDeployed = false;
 
 
         } else { // Turning darkmode on
@@ -134,8 +134,8 @@ hamburgerMenuIcon.addEventListener('click', () => {
             lightLogo.classList.remove('fa-sun')
             lightLogo.classList.add('fa-moon');
 
-            hamburgerMenu.innerHTML = "";
-            hamburgerMenuDeployed = false;
+            // hamburgerMenu.innerHTML = "";
+            // hamburgerMenuDeployed = false;
         }
     })
 
