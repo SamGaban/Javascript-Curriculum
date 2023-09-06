@@ -528,3 +528,17 @@ const lvlDic = [
 ];
 
 // Frameworks used tab
+
+// Define the URL of the JSON file on your local server
+const jsonFileUrl = './data.json';
+
+// Fetch the JSON data
+fetch(jsonFileUrl)
+    .then(response => response.json())
+    .then(data => {
+        // You can now work with the JSON data here
+        console.log(data.languagesSpoken[1]); // Output: John Doe
+    })
+    .catch(error => {
+        console.error('Error fetching JSON:', error);
+    });
