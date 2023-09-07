@@ -14,7 +14,7 @@
     --block-hover-color: #64CCC5;
     --img-slideshow-block-highlight: white;
     /* Miniatures of projects variable size */
-    --miniature-size: 6rem;
+    --miniature-size: 4.5rem;
     --image-size: 80vw;
     --descFontSize: 0.75rem;
     /*General Settings*/
@@ -197,7 +197,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    height: calc(var(--miniature-size) * 1.4);
+    /*height: calc(var(--miniature-size) * 1.4);*/
     justify-content: center;
     margin: 0 0 0 0;
     max-width: 90vw;

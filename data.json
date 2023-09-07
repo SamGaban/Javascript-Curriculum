@@ -252,10 +252,22 @@
       "id": 1,
       "title": "<strong>Project#0001</strong><br>Memory Card Flip Game",
       "description": [
-        "Project worked on during javascript training at Technifutur training center",
-        "test"
+        "Project worked on during javascript training at Technifutur training center"
       ],
-      "images": ["./assets/images/projectimgs/1.png", "./assets/images/projectimgs/0.png"]
+      "images": ["./assets/images/projectimgs/1.png"]
+    },
+    {
+      "id": 2,
+      "title": "<strong>Project#0002</strong><br>Test Project for page switch",
+      "description": [
+        "Main description",
+        "Test description 2",
+        "Test description 3",
+        "Test description 4"
+      ],
+      "images": [
+        "./assets/images/projectimgs/2.png", "./assets/images/projectimgs/2a.png", "./assets/images/projectimgs/2b.png", "./assets/images/projectimgs/2c.png"
+    ]
     }
   ],
   "bio" : ["<h2><em>'A man of focus, commitment, and sheer will !'<em></h2>\n<p>As I was getting bored of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had always been there for distraction and vain hobbies, and realised it was time I put to profit this proficiency I had built over the years using numeric tools.</p>\n\n<p>Coming from 'on-the-field' jobs, having dealt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline stress'</p>"]
