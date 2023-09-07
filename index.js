@@ -99,6 +99,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
             root.style.setProperty('--highlight-color', 'rgba(0,119,182,0.4)');
             root.style.setProperty('--block-background-color', '#E0E0E0');
             root.style.setProperty('--block-hover-color', '#D3D3D3');
+            root.style.setProperty('--img-slideshow-block-highlight', 'black');
 
             profilePicture.setAttribute('src', './assets/images/profileL.png') // changing PP
 
@@ -123,6 +124,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
             root.style.setProperty('--highlight-color', 'rgba(39, 77, 236, 0.5)');
             root.style.setProperty('--block-background-color', '#176B87');
             root.style.setProperty('--block-hover-color', '#64CCC5');
+            root.style.setProperty('--img-slideshow-block-highlight', 'white');
 
             profilePicture.setAttribute('src', './assets/images/profile.png') // changing PP
 
@@ -173,35 +175,72 @@ const RefreshBoxToBasicState = () => { // emptying the box each category is appe
 
 // About me Tab ____________________________________________________________________________________
 
+
 const switchPictureAndDescription = (id) => { // Function that makes it able to switch pictures and descriptions
+
 
     let image = document.querySelector(`#slideshow_pic_${id}`)
     let description = document.querySelector(`#slideshow_desc_${id}`);
-
+    let overlay = document.querySelector('#overlay'); // Arrow overlay (next, back)
+    let pageNumber = document.querySelector('#pageNumber');
 
     if (imageIndex < (portfolioDictionary[id].images.length - 1)) {
         imageIndex += 1;
         let src = portfolioDictionary[id].images[imageIndex];
-        image.setAttribute('src', src);
+        image.style.backgroundImage = `url('${src}')`;
         description.innerHTML = portfolioDictionary[id].description[imageIndex];
     } else {
         imageIndex = 0;
         let src = portfolioDictionary[id].images[imageIndex];
-        image.setAttribute('src', src);
+        image.style.backgroundImage = `url('${src}')`;
         description.innerHTML = portfolioDictionary[id].description[imageIndex];
+    }
+
+    if (imageIndex === portfolioDictionary[id].images.length - 1 && multiplePictures) { // Switches between next and back arrows if needed
+        overlay.setAttribute('src', "./assets/images/back.png");
+        pageNumber.innerHTML = `(${imageIndex + 1}/${portfolioDictionary[id].images.length})`;
+    } else if (multiplePictures) {
+        overlay.setAttribute('src', "./assets/images/next.png");
+        pageNumber.innerHTML = `(${imageIndex + 1}/${portfolioDictionary[id].images.length})`;
     }
 
 }
 
 let imageIndex = 0;
 
+let multiplePictures = false;
+
+let imageBoxDeployed = "";
+
 const PopulatePortfolioDetails = (id) => { // Populating details once a miniature is clicked
     PortofolioDeploy();
 
+    if (imageBoxDeployed === `deployed_${id}`) { // Conditional that will close the box if you click it and its already
+        imageBoxDeployed = "";
+        RefreshBoxToBasicState();
+        PortofolioDeploy();
+        return
+    }
+
+    imageBoxDeployed = `deployed_${id}`;
+
+    let pageNumber = document.createElement('p');
+    pageNumber.setAttribute('id', "pageNumber");
+
+    multiplePictures = false;
+
     imageIndex = 0;
+
+    if (portfolioDictionary[id].images.length !== 1) {
+        multiplePictures = true;
+    }
 
     let miniature = document.querySelector(`#miniature_${id}`);
     miniature.classList.add('miniature_highlight');
+
+    let arrow = document.createElement('img');
+    arrow.setAttribute('id', 'overlay');
+    arrow.setAttribute('src', './assets/images/next.png');
 
 
     let divToAppend = document.querySelector('#underbox');
@@ -211,18 +250,25 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
     let titlesrc = portfolioDictionary[id].title;
     let descsrc = portfolioDictionary[id].description[0];
 
-    let image = document.createElement('img');
+    let image = document.createElement('div');
     image.setAttribute('id', `slideshow_pic_${id}`);
     image.setAttribute('onclick', `switchPictureAndDescription(${id})`);
     let titled = document.createElement('h2');
     let description = document.createElement('p');
     description.setAttribute('id', `slideshow_desc_${id}`);
 
-    image.setAttribute('src', imagesrc);
+    image.style.backgroundImage = `url('${imagesrc}')`;
+    if (multiplePictures) { // Setting the background image as the image to display, so it's behind the "next" arrow
+        image.appendChild(arrow);
+    }
     titled.innerHTML = titlesrc;
     description.innerHTML = descsrc;
 
     divToAppend.appendChild(image);
+    if (multiplePictures) {
+        pageNumber.innerHTML = `(${1}/${portfolioDictionary[id].images.length})`;
+    }
+    divToAppend.appendChild(pageNumber);
     divToAppend.appendChild(titled);
     divToAppend.appendChild(description);
 

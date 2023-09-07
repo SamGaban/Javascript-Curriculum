@@ -12,6 +12,7 @@
     --highlight-color: rgba(39, 77, 236, 0.5);
     --block-background-color: #176B87;
     --block-hover-color: #64CCC5;
+    --img-slideshow-block-highlight: white;
     /* Miniatures of projects variable size */
     --miniature-size: 6rem;
     --image-size: 80vw;
@@ -224,9 +225,18 @@ body {
     text-align: center;
 }
 
-#underbox>img { /*big image display*/
-    border: 2px solid var(--accent-color);
-    max-width: var(--image-size);
+#underbox>div {
+    background-size: 100% 100%;
+    border: 3px solid var(--img-slideshow-block-highlight);
+    height: calc(var(--image-size) * 0.5625);
+    margin: 1rem auto 0 auto;
+    overflow: hidden;
+    width: var(--image-size);
+} /* Shared dimensions between background image (important) and arrow overlay */
+
+#underbox>div>img { /*arrow overlay*/
+    height: calc(var(--image-size) * 0.5625);
+    width: var(--image-size);
 }
 
 #underbox>h2 {

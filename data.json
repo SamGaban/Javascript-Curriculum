@@ -245,10 +245,8 @@
       "id": 0,
       "title": "<strong>Project#0000</strong><br>Shopping Cart WebApp",
       "description": [
-        "As a javascript initiation, this project was focused on converting what we learned about code with real web app implications for the first time.<br><br>The challenge was to create a shop app with the following possibilities:<br><br>-Adding and removing items to and from the cart.<br><br>-Checking totals and sub totals per multiple instances of a same item.",
-        "test"
-      ],
-      "images": ["./assets/images/projectimgs/0.png", "./assets/images/projectimgs/1.png"]
+        "As a javascript initiation, this project was focused on converting what we learned about code with real web app implications for the first time.<br><br>The challenge was to create a shop app with the following possibilities:<br><br>-Adding and removing items to and from the cart.<br><br>-Checking totals and sub totals per multiple instances of a same item."],
+      "images": ["./assets/images/projectimgs/0.png"]
     },
     {
       "id": 1,
