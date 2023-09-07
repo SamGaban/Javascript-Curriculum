@@ -96,7 +96,7 @@ hamburgerMenuIcon.addEventListener('click', () => {
             root.style.setProperty('--font-color', '#333333');
             root.style.setProperty('--accent-color', '#FF9900');
             root.style.setProperty('--background-color', '#F5F5F5');
-            root.style.setProperty('--highlight-color', '#0077B6');
+            root.style.setProperty('--highlight-color', 'rgba(0,119,182,0.4)');
             root.style.setProperty('--block-background-color', '#E0E0E0');
             root.style.setProperty('--block-hover-color', '#D3D3D3');
 
@@ -173,9 +173,32 @@ const RefreshBoxToBasicState = () => { // emptying the box each category is appe
 
 // About me Tab ____________________________________________________________________________________
 
+const switchPictureAndDescription = (id) => { // Function that makes it able to switch pictures and descriptions
+
+    let image = document.querySelector(`#slideshow_pic_${id}`)
+    let description = document.querySelector(`#slideshow_desc_${id}`);
+
+
+    if (imageIndex < (portfolioDictionary[id].images.length - 1)) {
+        imageIndex += 1;
+        let src = portfolioDictionary[id].images[imageIndex];
+        image.setAttribute('src', src);
+        description.innerHTML = portfolioDictionary[id].description[imageIndex];
+    } else {
+        imageIndex = 0;
+        let src = portfolioDictionary[id].images[imageIndex];
+        image.setAttribute('src', src);
+        description.innerHTML = portfolioDictionary[id].description[imageIndex];
+    }
+
+}
+
+let imageIndex = 0;
 
 const PopulatePortfolioDetails = (id) => { // Populating details once a miniature is clicked
     PortofolioDeploy();
+
+    imageIndex = 0;
 
     let miniature = document.querySelector(`#miniature_${id}`);
     miniature.classList.add('miniature_highlight');
@@ -184,13 +207,16 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
     let divToAppend = document.querySelector('#underbox');
     divToAppend.innerHTML = "";
 
-    let imagesrc = `./assets/images/projectimgs/${id}.png`;
+    let imagesrc = portfolioDictionary[id].images[0];
     let titlesrc = portfolioDictionary[id].title;
-    let descsrc = portfolioDictionary[id].description;
+    let descsrc = portfolioDictionary[id].description[0];
 
     let image = document.createElement('img');
+    image.setAttribute('id', `slideshow_pic_${id}`);
+    image.setAttribute('onclick', `switchPictureAndDescription(${id})`);
     let titled = document.createElement('h2');
     let description = document.createElement('p');
+    description.setAttribute('id', `slideshow_desc_${id}`);
 
     image.setAttribute('src', imagesrc);
     titled.innerHTML = titlesrc;
@@ -622,8 +648,6 @@ boxToClickFrameworks.addEventListener('click', () => {
 });
 
 // Hobbies _________________________________________________________________________________________________________
-
-
 
 
 // Initialize ___________________________________________________________________________________________________

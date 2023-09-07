@@ -243,13 +243,21 @@
   "portfolioDictionary": [
     {
       "id": 0,
-      "title": "Shopping List Template WebApp",
-      "description": "Project worked on during javascript initiation at Technifutur training center"
+      "title": "<strong>Project#0000</strong><br>Shopping Cart WebApp",
+      "description": [
+        "As a javascript initiation, this project was focused on converting what we learned about code with real web app implications for the first time.<br><br>The challenge was to create a shop app with the following possibilities:<br><br>-Adding and removing items to and from the cart.<br><br>-Checking totals and sub totals per multiple instances of a same item.",
+        "test"
+      ],
+      "images": ["./assets/images/projectimgs/0.png", "./assets/images/projectimgs/1.png"]
     },
     {
       "id": 1,
-      "title": "Memory Card Flip Game",
-      "description": "Project worked on during javascript training at Technifutur training center"
+      "title": "<strong>Project#0001</strong><br>Memory Card Flip Game",
+      "description": [
+        "Project worked on during javascript training at Technifutur training center",
+        "test"
+      ],
+      "images": ["./assets/images/projectimgs/1.png", "./assets/images/projectimgs/0.png"]
     }
   ],
   "bio" : ["<h2><em>'A man of focus, commitment, and sheer will !'<em></h2>\n<p>As I was getting bored of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had always been there for distraction and vain hobbies, and realised it was time I put to profit this proficiency I had built over the years using numeric tools.</p>\n\n<p>Coming from 'on-the-field' jobs, having dealt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline stress'</p>"]
