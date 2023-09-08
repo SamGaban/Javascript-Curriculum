@@ -65,6 +65,7 @@ body {
 
 .boxed {
     border: 1px solid var(--accent-color);
+    border-radius: 12px;
     padding: 0.4rem;
 }
 
@@ -82,6 +83,7 @@ body {
 .highlighted:hover {
     background-color: var(--highlight-color);
     cursor: pointer;
+    padding: 0.3rem;
     transition-duration: 0.3s;
 }
 
@@ -267,8 +269,10 @@ body {
 
 .individual_language_box {
     border: 1px solid var(--accent-color);
+    border-radius: 12px;
     max-width: calc(100%/2);
     padding: 0.3rem;
+    text-align: center;
 }
 
 #main_languages_div {
@@ -343,46 +347,7 @@ body {
     text-align: center;
 }
 
-.xp10 {
-    background-image: url("../images/xpbar/10.png");
+#xp_left_before_next {
+    text-align: center;
 }
 
-.xp20 {
-    background-image: url("../images/xpbar/20.png");
-}
-
-.xp30 {
-    background-image: url("../images/xpbar/30.png");
-}
-
-.xp40 {
-    background-image: url("../images/xpbar/40.png");
-}
-
-.xp50 {
-    background-image: url("../images/xpbar/50.png");
-}
-
-.xp60 {
-    background-image: url("../images/xpbar/60.png");
-}
-
-.xp70 {
-    background-image: url("../images/xpbar/70.png");
-}
-
-.xp80 {
-    background-image: url("../images/xpbar/80.png");
-}
-
-.xp90 {
-    background-image: url("../images/xpbar/90.png");
-}
-
-.xp100 {
-    background-image: url("../images/xpbar/100.png");
-}
-
-.frameworks_used {
-
-}

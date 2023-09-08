@@ -42,7 +42,6 @@ const boxToClickWorkExperience = document.querySelector('#workExperienceBox');
 const boxToClickEducation = document.querySelector('#educationBox');
 const boxToClickCodingLanguages = document.querySelector('#codeLanguageBox');
 const boxToClickFrameworks = document.querySelector('#frameworksBox');
-const boxToClickHobbies = document.querySelector('#hobbiesBox');
 
  pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
 
@@ -579,28 +578,6 @@ const PopulateCodingLanguagesIndividual = (id) => {
         let progression = xpCount - lvlDic[actualLvl].min; // calculating current xp, xp left before lvl up
         let percentage = ((progression / totalPointsInLevel) * 100).toFixed(2);
 
-        if (0 <= percentage && percentage <= 15) { // Defining the img src of the xp bar related to current xp
-            imgsrc = "xp10"
-        } else if (16 <= percentage && percentage <= 25) {
-            imgsrc = "xp20"
-        } else if (26 <= percentage && percentage <= 35) {
-            imgsrc = "xp30"
-        } else if (36 <= percentage && percentage <= 45) {
-            imgsrc = "xp40"
-        } else if (46 <= percentage && percentage <= 55) {
-            imgsrc = "xp50"
-        } else if (56 <= percentage && percentage <= 65) {
-            imgsrc = "xp60"
-        } else if (66 <= percentage && percentage <= 75) {
-            imgsrc = "xp70"
-        } else if (76 <= percentage && percentage <= 85) {
-            imgsrc = "xp80"
-        } else if (86 <= percentage && percentage <= 95) {
-            imgsrc = "xp90"
-        } else if (96 <= percentage) {
-            imgsrc = "xp100"
-        }
-
         let displayLevel = document.createElement('h4');
         displayLevel.classList.add('display_level');
         displayLevel.innerHTML = `Level ${actualLvl}`;
@@ -612,10 +589,15 @@ const PopulateCodingLanguagesIndividual = (id) => {
 
         let xpbar = document.createElement('div'); // xpbar is a background image of div
         xpbar.classList.add('xpbar');
-        xpbar.classList.add(imgsrc);
+
+        xpbar.style.backgroundImage = `url('./assets/images/xpbar/${Math.floor(percentage)}.png')`;
+
+        console.log(percentage);
+
         xpbar.appendChild(percentageDisplay);
 
         let leftBeforeNextLevel = document.createElement('h6');
+        leftBeforeNextLevel.setAttribute('id', 'xp_left_before_next');
         leftBeforeNextLevel.textContent = `${(totalPointsInLevel - progression)} challenges left before level ${actualLvl + 1}`;
 
         box.appendChild(codingChallengesDisplay);
