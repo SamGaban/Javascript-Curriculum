@@ -246,7 +246,8 @@
       "title": "<strong>Project#0000</strong><br>Shopping Cart WebApp",
       "description": [
         "As a javascript initiation, this project was focused on converting what we learned about code with real web app implications for the first time.<br><br>The challenge was to create a shop app with the following possibilities:<br><br>-Adding and removing items to and from the cart.<br><br>-Checking totals and sub totals per multiple instances of a same item."],
-      "images": ["./assets/images/projectimgs/0.png"]
+      "images": ["./assets/images/projectimgs/0.png"],
+      "github": ["https://github.com/Hunknowow/shoppinglist"]
     },
     {
       "id": 1,
@@ -254,7 +255,8 @@
       "description": [
         "Project worked on during javascript training at Technifutur training center"
       ],
-      "images": ["./assets/images/projectimgs/1.png"]
+      "images": ["./assets/images/projectimgs/1.png"],
+      "github": ["https://github.com/Hunknowow/memorygamesimpler"]
     },
     {
       "id": 2,

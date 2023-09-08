@@ -283,6 +283,14 @@ body {
     margin: 1rem auto;
 }
 
+#githublink {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+#githublink:hover {
+    color: var(--highlight-color);
+}
+
 /*Browser Tabs "Work Experience" Section*/
 
 #workExperienceBoxList { /* whole box*/

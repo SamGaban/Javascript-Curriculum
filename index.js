@@ -241,6 +241,11 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
     arrow.setAttribute('id', 'overlay');
     arrow.setAttribute('src', './assets/images/next.png');
 
+    let githubLink = document.createElement('a');
+    githubLink.setAttribute('id', 'githublink');
+    githubLink.setAttribute('href', `${portfolioDictionary[id].github}`);
+    githubLink.textContent = "Github Link";
+
 
     let divToAppend = document.querySelector('#underbox');
     divToAppend.innerHTML = "";
@@ -270,6 +275,7 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
     divToAppend.appendChild(pageNumber);
     divToAppend.appendChild(titled);
     divToAppend.appendChild(description);
+    divToAppend.appendChild(githubLink);
 
     ScrollDown();
 
