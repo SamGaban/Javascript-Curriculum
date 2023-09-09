@@ -109,14 +109,16 @@
       "language": "<i class='fa-solid fa-brands fa-python'></i> Python",
       "codinggame": 12,
       "hackerrank": 10,
-      "leetcode": 0
+      "leetcode": 0,
+      "last": "August 12, 2023 18:00:00 GMT+02:00"
     },
     {
       "id": 1,
       "language": "<i class='fa-solid fa-brands fa-js'></i> Javascript",
-      "codinggame": 1,
+      "codinggame": 2,
       "hackerrank": 0,
-      "leetcode": 0
+      "leetcode": 0,
+      "last": "September 09, 2023 18:07:00 GMT+02:00"
     },
     {
       "id": 2,

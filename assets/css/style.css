@@ -330,6 +330,12 @@ body {
     margin-bottom: 1rem;
 }
 
+#timesince {
+    font-size: calc(var(--font-size) * 0.75);
+    margin: 1rem auto;
+    text-align: center;
+}
+
 /*XPBAR Functionality*/
 
 .code_div {

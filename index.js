@@ -234,6 +234,7 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
         multiplePictures = true;
     }
 
+
     let miniature = document.querySelector(`#miniature_${id}`);
     miniature.classList.add('miniature_highlight');
 
@@ -454,6 +455,8 @@ boxToClickWorkExperience.addEventListener('click', () => { // adding functionali
 
 // Function to populate the Education specific titles with the full info
 
+
+
 let educationBoxOpenedState = ""; // State variable to check opened state
 
 const PopulateEducationIndividual = (id) => {
@@ -467,6 +470,7 @@ const PopulateEducationIndividual = (id) => {
 
         RefreshBoxToBasicState();
         PopulateEducationTitles();
+
 
         let title = document.querySelector(`.education_title_${id}`);
         title.classList.remove('highlighted')
@@ -528,6 +532,35 @@ boxToClickEducation.addEventListener('click', () => {
     PopulateEducationTitles();
 });
 
+const timeSinceLast = (last) => { // Function to calculate time since last challenge
+    const now = new Date().getTime();
+
+    let timeElapsed = now - last.getTime();
+
+    let seconds = (timeElapsed / 1000).toFixed();
+
+    let minutes = (seconds - (seconds % 60)) / 60;
+
+    let hours = (minutes - (minutes % 60)) / 60;
+
+    let days = (hours - (hours % 24)) / 24;
+
+    let finalHours = hours - (days * 24);
+
+    let string = "";
+
+    if (days > 0) {
+        string = `Last challenge in this language ${days} days and ${finalHours} hours ago !`
+    } else if (finalHours <= 0) {
+        string = "Last challenge in this language minutes ago !"
+    } else if (days <= 0 && finalHours > 0) {
+        string = `Last challenge in this language ${finalHours} hours ago !`
+    }
+
+    return string;
+}
+
+
 // "Coding Languages" Tab _______________________________________________________________________________________
 
 // Populating each code language title when clicking on it
@@ -545,6 +578,15 @@ const PopulateCodingLanguagesIndividual = (id) => {
         codeLanguageTabDisplaying = `language${id}`;
         RefreshBoxToBasicState();
         PopulateCodingLanguagesTitles();
+
+        const lastChall = new Date(codingLanguagesList[id].last);
+
+        const interval = timeSinceLast(lastChall);
+
+        let timeSince = document.createElement('p');
+        timeSince.setAttribute('id', 'timesince');
+        timeSince.textContent = interval;
+
 
         let title = document.querySelector(`#language_name_${codingLanguagesList[id].id}`);
         title.innerHTML = codingLanguagesList[id].language + " <i class=\'fa-solid fa-caret-down\'></i>";
@@ -610,6 +652,7 @@ const PopulateCodingLanguagesIndividual = (id) => {
         box.appendChild(codingGameStats);
         box.appendChild(hackerRankStats);
         box.appendChild(leetCodeStats);
+        box.appendChild(timeSince);
         box.appendChild(displayLevel);
         box.appendChild(xpbar);
         box.appendChild(leftBeforeNextLevel);
