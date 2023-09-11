@@ -1,4 +1,13 @@
 @media (min-width: 576px) {
 
+    :root {
+        /* Miniatures of projects variable size */
+        --miniature-size: 5.5rem;
+        --image-size: 80vw;
+        --descFontSize: 0.85rem;
+        /*General Settings*/
+        --font-size: 16px;
+    }
+
 }
 

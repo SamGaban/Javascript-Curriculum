@@ -549,12 +549,14 @@ const timeSinceLast = (last) => { // Function to calculate time since last chall
 
     let string = "";
 
-    if (days > 0) {
-        string = `Last challenge in this language ${days} days and ${finalHours} hours ago !`
+    if (days > 1) {
+        string = `Last challenge in this language ${days} days and ${finalHours} hours ago!`
+    } else if (days === 1) {
+        string = `Last challenge in this language ${days} day and ${finalHours} hours ago!`
     } else if (finalHours <= 0) {
-        string = "Last challenge in this language minutes ago !"
+        string = "Last challenge in this language minutes ago!"
     } else if (days <= 0 && finalHours > 0) {
-        string = `Last challenge in this language ${finalHours} hours ago !`
+        string = `Last challenge in this language ${finalHours} hours ago!`
     }
 
     return string;
@@ -639,8 +641,6 @@ const PopulateCodingLanguagesIndividual = (id) => {
         xpbar.classList.add('xpbar');
 
         xpbar.style.backgroundImage = `url('./assets/images/xpbar/${Math.floor(percentage)}.png')`;
-
-        console.log(percentage);
 
         xpbar.appendChild(percentageDisplay);
 

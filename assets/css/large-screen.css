@@ -1,4 +1,15 @@
 @media (min-width: 1440px) {
+
+    :root {
+        /* Miniatures of projects variable size */
+        --miniature-size: 9rem;
+        --image-size: 60vw;
+        --descFontSize: 1.5rem;
+        /*General Settings*/
+        --font-size: 28px;
+    }
+
+
     .container {
         padding: 0 120px;
     }

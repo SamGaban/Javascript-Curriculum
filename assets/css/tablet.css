@@ -1,7 +1,37 @@
 @media (min-width: 768px) {
+
+    :root {
+        /* Miniatures of projects variable size */
+        --miniature-size: 6.5rem;
+        --image-size: 80vw;
+        --descFontSize: 1rem;
+        /*General Settings*/
+        --font-size: 18px;
+    }
+
+
+
     .container {
         padding: 0 40px;
     }
+
+
+    #headerDivision {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #profilePicture {
+        width: 35vw;
+    }
+
+
+    #name_title_div {
+        align-self: center;
+        margin: auto auto auto 3rem;
+        text-align: left;
+    }
+
 
 
 }

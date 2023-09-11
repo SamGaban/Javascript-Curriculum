@@ -132,18 +132,22 @@ body {
     margin-bottom: 2rem;
 }
 
-#headerDivision>img { /* Profile pic */
+#profilePicture { /* Profile pic */
     max-width: 55vw;
 }
 
-#headerDivision>h1 { /*Presentation title*/
+#my_name { /*Presentation title*/
     font-size: 2rem;
     font-weight: 800;
 }
 
-#headerDivision>h3 { /* presentation text*/
+#my_title { /* presentation text*/
     font-size: 1.3rem;
     font-weight: 400;
+}
+
+#big_screen_hr {
+    display: none;
 }
 
 
@@ -189,7 +193,7 @@ body {
 }
 
 #bio_box>p {
-    font-size: 0.7rem;
+    font-size: var(--font-size);
 }
 
 
@@ -201,8 +205,9 @@ body {
     gap: 2rem;
     /*height: calc(var(--miniature-size) * 1.4);*/
     justify-content: center;
-    margin: 0 0 0 0;
+    margin: 0 0 2rem 0;
     max-width: 90vw;
+    padding: 2rem;
 }
 #miniature_box>img {
     max-width: var(--miniature-size);
@@ -262,9 +267,13 @@ body {
 
 /*Browser Tabs "Skills" Section*/
 
+#skillBoxList {
+    text-align: center;
+}
+
 
 #skillBoxList>img {
-    max-width: 90vw;
+    max-width: var(--image-size);
 }
 
 .individual_language_box {

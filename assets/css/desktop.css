@@ -1,6 +1,71 @@
 @media (min-width: 1024px) {
-    .container {
-        padding: 0 80px;
+
+    :root {
+        /* Miniatures of projects variable size */
+        --miniature-size: 6.5rem;
+        --image-size: 60vw;
+        --descFontSize: 1.2rem;
+        /*General Settings*/
+        --font-size: 20px;
+        --margin-for-bigger-screens: 15rem;
+    }
+
+
+    #toggleAbleBox {
+        margin-left: var(--margin-for-bigger-screens);
+    }
+
+    #underbox {
+        margin-left: var(--margin-for-bigger-screens);
+    }
+
+    #big_screen_hr {
+        border: 1px solid var(--accent-color);
+        display: block;
+        margin: 5rem auto;
+        width: 85vw;
+    }
+
+    #headerDivision {
+        padding-right: 0;
+    }
+
+
+    #tabSection {
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        padding-left: 0;
+    }
+
+    #tabSection>div {
+        width: 16rem;
+    }
+
+    #name_title_div {
+        flex-basis: 75%;
+    }
+
+
+    #headerDivision { /* Whole division*/
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+    }
+
+    #profilePicture { /* Profile pic */
+        max-width: 40vw;
+    }
+
+
+    #my_name { /*Presentation title*/
+        font-size: 4rem;
+        font-weight: 800;
+    }
+
+    #my_title { /* presentation text*/
+        font-size: 2.75rem;
+        font-weight: 400;
     }
 
 
