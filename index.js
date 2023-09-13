@@ -78,9 +78,9 @@ hamburgerMenuIcon.addEventListener('click', () => {
     // menuItemTwo.addEventListener('click', () => {
     //     open("https://samgaban.github.io/curriculum/");
     // })
-    menuItemThree.textContent = "Old CV";
+    menuItemThree.textContent = "pwak";
     menuItemThree.addEventListener('click', () => {
-        open("https://samgaban.github.io/curriculum/"); // OLD CV Test
+        open("#"); // OLD CV Test
     })
     if (darkmode) { // Setting for the toggle switch button to display properly if navbar closed and reopened
         menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
