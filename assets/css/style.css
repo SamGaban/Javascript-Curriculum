@@ -40,6 +40,15 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
     border: 0;
     font: inherit;
     vertical-align: baseline;
+    text-decoration: none;
+}
+
+a {
+    color: var(--font-color);
+}
+
+a:hover {
+    color: var(--accent-color);
 }
 
 /* Apply a box-sizing border-box to all elements for more predictable sizing */

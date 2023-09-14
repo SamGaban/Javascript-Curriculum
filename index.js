@@ -74,10 +74,8 @@ hamburgerMenuIcon.addEventListener('click', () => {
     menuItemTwo.addEventListener('click', () => {
         open("mailto:gaban.sam@gmail.com");
     })
-    menuItemThree.innerHTML = "<i class=\'fa-solid fa-download\'></i> Download A4 CV"
-    menuItemThree.addEventListener('click', () => {
-        open("./assets/files/CV.pdf/"); // OLD CV Test
-    })
+    menuItemThree.innerHTML = "<i class=\'fa-solid fa-download\'></i> <a href='./assets/files/CV.pdf'>Download A4 CV</a>"
+
     if (darkmode) { // Setting for the toggle switch button to display properly if navbar closed and reopened
         menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
     } else {
@@ -280,12 +278,12 @@ const PopulatePortfolioDetails = (id) => { // Populating details once a miniatur
 const PopulateBio = () => {
     let bio = document.createElement('div');
     bio.setAttribute('id', 'bio_box');
-    bio.innerHTML = "<p><em>'A man of focus, commitment, and sheer will!'</em></p><br>\n<p>As I was getting bore" +
-        "d of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had alwa" +
-        "ys been there for distraction and vain hobbies, and realised it was time I put to profit this proficienc" +
-        "y I had built over the years using numeric tools.</p>\n<br>\n<p>Coming from 'on-the-field' jobs, having dea" +
-        "lt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline st" +
-        "ress', so, bring it on!</p>"
+    bio.innerHTML = "<p><em>'A man of focus, commitment, and sheer will!'</em></p><br>\n<p>As I felt I had taken enough" +
+        " from the various career paths I tried for the sake of challenging myself, I looked at my computer, a " +
+        "companion that had always been there for distraction and vain hobbies, and realised it was time I put to profi" +
+        "t this proficieny I had built over the years using numeric tools, and use it to pursue what I had always seen as a" +
+        " dream, a career in programming.</p>\n<br>\n<p>Coming from 'on-the-field' jobs, having dealt with many diffi" +
+        "cult emergency situations, I can confidently affirm that I'm immune to the 'deadline stress', so, bring it on!</p>"
 
     boxToAppendCategoriesTo.appendChild(bio);
 }
