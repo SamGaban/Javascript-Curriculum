@@ -262,16 +262,16 @@
     },
     {
       "id": 2,
-      "title": "<strong>Project#0002</strong><br>Test Project for page switch",
+      "title": "<strong>Project#0002</strong><br>The Web CV",
       "description": [
-        "Main description",
-        "Test description 2",
-        "Test description 3",
-        "Test description 4"
+        "This CV you are visiting was in fact the result of the first 'Laboratory project' we were given, the technical constraints were many, and the limitations were to only use vanilla html/css/javascript. I had loads of fun designing this 'browser tabs' system to open and close sections of the CV.",
+        "I took on some personal challenges to try and implement so to have fun little experiments, such as this video game inspired experience point system, wich gives me level and level percentages based on the code challenges I was to log on the app.",
+        "One very useful feature I had the idea to implement was the Dark mode toggle option. I approached it carefully as I thought this might present more of a challenge, but quickly realised it was way easier to create than anticipated."
       ],
       "images": [
-        "./assets/images/projectimgs/2.png", "./assets/images/projectimgs/2a.png", "./assets/images/projectimgs/2b.png", "./assets/images/projectimgs/2c.png"
-    ]
+        "./assets/images/projectimgs/2.png", "./assets/images/projectimgs/2a.png", "./assets/images/projectimgs/2b.png"
+    ],
+    "github": ["https://github.com/Hunknowow/LABO1_CV"]
     }
   ],
   "bio" : ["<h2><em>'A man of focus, commitment, and sheer will !'<em></h2>\n<p>As I was getting bored of the monotonous routine I had stuck myself into, I looked at my computer, a companion that had always been there for distraction and vain hobbies, and realised it was time I put to profit this proficiency I had built over the years using numeric tools.</p>\n\n<p>Coming from 'on-the-field' jobs, having dealt with many difficult emergency situations, I can confidently affirm that I'm immune to the 'deadline stress'</p>"]

@@ -210,16 +210,17 @@ body {
     padding: 2rem;
 }
 #miniature_box>img {
-    max-width: var(--miniature-size);
-    max-height: var(--miniature-size);
-    transition-duration: 0.5s;
+    width: var(--miniature-size);
+    height: var(--miniature-size);
+    transition-duration: 0.3s;
 }
 
 
 #miniature_box>img:hover {
-    max-width: calc((var(--miniature-size)) * 1.2);
-    max-height: calc((var(--miniature-size)) * 1.2);
-    transition-duration: 0.5s;
+    width: calc((var(--miniature-size)) * 1.1);
+    height: calc((var(--miniature-size)) * 1.1);
+    transition-duration: 0.3s;
+    transform: translateY(-30px);
 }
 
 .miniature_highlight {

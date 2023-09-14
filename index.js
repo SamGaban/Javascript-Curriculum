@@ -66,21 +66,17 @@ hamburgerMenuIcon.addEventListener('click', () => {
     let lightLogo = document.querySelector('#light_switch_logo');
 
     // Creating the nav bar hamburger menu items
-    let menuItemOne = document.createElement('li');
     let menuItemTwo = document.createElement('li');
     let menuItemThree = document.createElement('li');
     let menuItemFour = document.createElement('li');
-    menuItemOne.textContent = "test";
-    // menuItemOne.addEventListener('click', () => {
-    //     open("https://samgaban.github.io/curriculum/"); // Actions when clicking on navbar items
-    // })
-    menuItemTwo.textContent = "plop";
-    // menuItemTwo.addEventListener('click', () => {
-    //     open("https://samgaban.github.io/curriculum/");
-    // })
-    menuItemThree.textContent = "pwak";
+
+    menuItemTwo.innerHTML = "<i class=\'fa-solid fa-at\'></i> Contact Me";
+    menuItemTwo.addEventListener('click', () => {
+        open("mailto:gaban.sam@gmail.com");
+    })
+    menuItemThree.innerHTML = "<i class=\'fa-solid fa-download\'></i> Download A4 CV"
     menuItemThree.addEventListener('click', () => {
-        open("#"); // OLD CV Test
+        open("./assets/files/CV.pdf/"); // OLD CV Test
     })
     if (darkmode) { // Setting for the toggle switch button to display properly if navbar closed and reopened
         menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
@@ -141,7 +137,6 @@ hamburgerMenuIcon.addEventListener('click', () => {
     })
 
     if (hamburgerMenuDeployed) { // populating burger menu items
-        hamburgerMenu.appendChild(menuItemOne);
         hamburgerMenu.appendChild(menuItemTwo);
         hamburgerMenu.appendChild(menuItemThree);
         hamburgerMenu.appendChild(menuItemFour);
