@@ -43,14 +43,16 @@ const boxToClickEducation = document.querySelector('#educationBox');
 const boxToClickCodingLanguages = document.querySelector('#codeLanguageBox');
 const boxToClickFrameworks = document.querySelector('#frameworksBox');
 
- pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
 
 
 // Function to force scroll to end of page
 
+
 const ScrollDown = () => {
-    window.scrollTo(0, pageHeight);
-};
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+
 
 let darkmode = true; // Default page dark mode activation
 
