@@ -42,7 +42,7 @@ const boxToClickWorkExperience = document.querySelector('#workExperienceBox');
 const boxToClickEducation = document.querySelector('#educationBox');
 const boxToClickCodingLanguages = document.querySelector('#codeLanguageBox');
 const boxToClickFrameworks = document.querySelector('#frameworksBox');
-
+const lightSwitchLogo = document.querySelector('#light_switch_logo');
 
 
 // Function to force scroll to end of page
@@ -70,7 +70,6 @@ hamburgerMenuIcon.addEventListener('click', () => {
     // Creating the nav bar hamburger menu items
     let menuItemTwo = document.createElement('li');
     let menuItemThree = document.createElement('li');
-    let menuItemFour = document.createElement('li');
 
     menuItemTwo.innerHTML = "<i class=\'fa-solid fa-at\'></i> Contact Me";
     menuItemTwo.addEventListener('click', () => {
@@ -78,72 +77,80 @@ hamburgerMenuIcon.addEventListener('click', () => {
     })
     menuItemThree.innerHTML = "<i class=\'fa-solid fa-download\'></i> <a href='./assets/files/CV.pdf'>Download A4 CV</a>"
 
-    if (darkmode) { // Setting for the toggle switch button to display properly if navbar closed and reopened
-        menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
-    } else {
-        menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-off\'></i>";
-    }
-
-    menuItemFour.addEventListener('click', () => { // dark theme toggle off / on
-        if (darkmode) { // Turning lightmode on
-            menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-off\'></i>";
-            darkmode = !darkmode;
-            root.style.setProperty('--font-color', '#333333');
-            root.style.setProperty('--accent-color', '#FF9900');
-            root.style.setProperty('--background-color', '#F5F5F5');
-            root.style.setProperty('--highlight-color', 'rgba(0,119,182,0.4)');
-            root.style.setProperty('--block-background-color', '#E0E0E0');
-            root.style.setProperty('--block-hover-color', '#D3D3D3');
-            root.style.setProperty('--img-slideshow-block-highlight', 'black');
-
-            profilePicture.setAttribute('src', './assets/images/profileL.png') // changing PP
-
-            if (skillsTabOpened) { // changing graph color
-                let skillGraph = document.querySelector('#skill_graph');
-                skillGraph.setAttribute('src', './assets/images/graphL.png')
-            }
-
-            lightLogo.classList.remove('fa-moon');
-            lightLogo.classList.add('fa-sun')
-
-            // hamburgerMenu.innerHTML = "";
-            // hamburgerMenuDeployed = false;
-
-
-        } else { // Turning darkmode on
-            menuItemFour.innerHTML = "<i class=\'fa-solid fa-sun\'></i> Night Mode <i class=\'fa-solid fa-toggle-on\'></i>";
-            darkmode = !darkmode;
-            root.style.setProperty('--font-color', '#EEEEEE');
-            root.style.setProperty('--accent-color', '#00FF00');
-            root.style.setProperty('--background-color', '#053B50');
-            root.style.setProperty('--highlight-color', 'rgba(39, 77, 236, 0.5)');
-            root.style.setProperty('--block-background-color', '#176B87');
-            root.style.setProperty('--block-hover-color', '#64CCC5');
-            root.style.setProperty('--img-slideshow-block-highlight', 'white');
-
-            profilePicture.setAttribute('src', './assets/images/profile.png') // changing PP
-
-            if (skillsTabOpened) { // changing graph color
-                let skillGraph = document.querySelector('#skill_graph');
-                skillGraph.setAttribute('src', './assets/images/graph.png')
-            }
-
-            lightLogo.classList.remove('fa-sun')
-            lightLogo.classList.add('fa-moon');
-
-            // hamburgerMenu.innerHTML = "";
-            // hamburgerMenuDeployed = false;
-        }
-    })
 
     if (hamburgerMenuDeployed) { // populating burger menu items
         hamburgerMenu.appendChild(menuItemTwo);
         hamburgerMenu.appendChild(menuItemThree);
-        hamburgerMenu.appendChild(menuItemFour);
     } else { // closing the burger menu if clicked when opened
         hamburgerMenu.innerHTML = "";
     }
 });
+
+// Event listener on the light switch logo next to hamburger
+
+lightSwitchLogo.addEventListener('click', () => { // dark theme toggle off / on
+
+    let root = document.querySelector(':root'); // targetting root for the color shift
+
+    let profilePicture = document.querySelector('#profilePicture');
+
+    let lightLogo = document.querySelector('#light_switch_logo');
+
+
+
+
+    if (darkmode) { // Turning lightmode on
+        darkmode = !darkmode;
+        root.style.setProperty('--font-color', '#333333');
+        root.style.setProperty('--accent-color', '#FF9900');
+        root.style.setProperty('--background-color', '#F5F5F5');
+        root.style.setProperty('--highlight-color', 'rgba(0,119,182,0.4)');
+        root.style.setProperty('--block-background-color', '#E0E0E0');
+        root.style.setProperty('--block-hover-color', '#D3D3D3');
+        root.style.setProperty('--img-slideshow-block-highlight', 'black');
+
+        profilePicture.setAttribute('src', './assets/images/profileL.png') // changing PP
+
+        if (skillsTabOpened) { // changing graph color
+            let skillGraph = document.querySelector('#skill_graph');
+            skillGraph.setAttribute('src', './assets/images/graphL.png')
+        }
+
+        lightLogo.classList.remove('fa-sun');
+        lightLogo.classList.add('fa-moon')
+
+        // hamburgerMenu.innerHTML = "";
+        // hamburgerMenuDeployed = false;
+
+
+    } else { // Turning darkmode on
+        darkmode = !darkmode;
+        root.style.setProperty('--font-color', '#EEEEEE');
+        root.style.setProperty('--accent-color', '#00FF00');
+        root.style.setProperty('--background-color', '#053B50');
+        root.style.setProperty('--highlight-color', 'rgba(39, 77, 236, 0.5)');
+        root.style.setProperty('--block-background-color', '#176B87');
+        root.style.setProperty('--block-hover-color', '#64CCC5');
+        root.style.setProperty('--img-slideshow-block-highlight', 'white');
+
+        profilePicture.setAttribute('src', './assets/images/profile.png') // changing PP
+
+        if (skillsTabOpened) { // changing graph color
+            let skillGraph = document.querySelector('#skill_graph');
+            skillGraph.setAttribute('src', './assets/images/graph.png')
+        }
+
+        lightLogo.classList.remove('fa-moon')
+        lightLogo.classList.add('fa-sun');
+
+        // hamburgerMenu.innerHTML = "";
+        // hamburgerMenuDeployed = false;
+    }
+})
+
+
+
+
 
 // Closing the hamburger menu / navbar if clicked outside of it
 document.addEventListener('click', function(event) {
@@ -723,4 +730,3 @@ boxToClickFrameworks.addEventListener('click', () => {
 
 
 // Initialize ___________________________________________________________________________________________________
-// PortofolioDeploy();

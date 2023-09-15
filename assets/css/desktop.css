@@ -55,7 +55,8 @@
     }
 
     #profilePicture { /* Profile pic */
-        max-width: 40vw;
+        width: 20vw;
+        height: 100%;
     }
 
 

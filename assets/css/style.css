@@ -18,9 +18,13 @@
     --image-size: 80vw;
     --descFontSize: 0.75rem;
     /*General Settings*/
-    --font-size: 16px;
+    --font-size: 1rem;
 }
 
+
+#light_switch_logo:hover {
+    cursor: pointer;
+}
 
 
 /*__________________________________*/
@@ -239,6 +243,7 @@ body {
 
 
 #underbox {
+    margin-bottom: 3rem;
     text-align: center;
 }
 
@@ -382,5 +387,9 @@ body {
 
 #xp_left_before_next {
     text-align: center;
+}
+
+#toggleAbleBox {
+    margin-bottom: 3rem;
 }
 
