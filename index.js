@@ -314,6 +314,7 @@ const PortofolioDeploy = () => { // Displaying the short bio and the miniature "
         miniature.classList.add('all_miniatures');
         miniature.setAttribute('id', `miniature_${portfolioDictionary[i].id}`);
         miniature.setAttribute('src', smallsrc);
+        miniature.classList.add('boxed');
 
         miniature.setAttribute('onclick', `PopulatePortfolioDetails(${portfolioDictionary[i].id})`);
 
